@@ -1,0 +1,79 @@
+import { TrendingUp, Shield, Zap, Briefcase } from 'lucide-react';
+
+export default function Home() {
+  return (
+    <>
+      <section className="hero-section">
+        <div className="container mx-auto px-6 py-24 text-center">
+          <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
+            Profesjonalne usługi księgowe dla Twojej firmy
+          </h1>
+          <p className="text-xl md:text-2xl text-blue-50 mb-10 max-w-3xl mx-auto">
+            Kompleksowa obsługa księgowa z pasją i zaangażowaniem
+          </p>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <a href="#contact" className="btn-primary">
+              Skontaktuj się z nami
+            </a>
+            <a href="#services" className="btn-secondary">
+              Zakres usług
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-6">
+          <h2 className="text-4xl font-bold text-center text-gray-900 mb-16">
+            Dlaczego my?
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="feature-card">
+              <div className="feature-icon">
+                <TrendingUp size={48} className="text-blue-600" />
+              </div>
+              <h3 className="text-xl font-bold text-blue-600 mb-3">Doświadczenie</h3>
+              <p className="text-gray-600">Wieloletnie doświadczenie w branży księgowej</p>
+            </div>
+
+            <div className="feature-card">
+              <div className="feature-icon">
+                <Zap size={48} className="text-blue-600" />
+              </div>
+              <h3 className="text-xl font-bold text-blue-600 mb-3">Szybkość</h3>
+              <p className="text-gray-600">Terminowa realizacja wszystkich zleceń</p>
+            </div>
+
+            <div className="feature-card">
+              <div className="feature-icon">
+                <Shield size={48} className="text-blue-600" />
+              </div>
+              <h3 className="text-xl font-bold text-blue-600 mb-3">Bezpieczeństwo</h3>
+              <p className="text-gray-600">Pełna poufność i bezpieczeństwo danych</p>
+            </div>
+
+            <div className="feature-card">
+              <div className="feature-icon">
+                <Briefcase size={48} className="text-blue-600" />
+              </div>
+              <h3 className="text-xl font-bold text-blue-600 mb-3">Profesjonalizm</h3>
+              <p className="text-gray-600">Indywidualne podejście do każdego klienta</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="cta-section">
+        <div className="container mx-auto px-6 py-20 text-center">
+          <h2 className="text-4xl font-bold text-white mb-6">Gotowy na współpracę?</h2>
+          <p className="text-xl text-blue-50 mb-8 max-w-2xl mx-auto">
+            Skontaktuj się z nami już dziś i poznaj nasze możliwości
+          </p>
+          <a href="#contact" className="btn-primary">
+            Napisz do nas
+          </a>
+        </div>
+      </section>
+    </>
+  );
+}
