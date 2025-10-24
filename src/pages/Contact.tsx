@@ -45,8 +45,8 @@ export default function Contact() {
                     </div>
                     <div>
                       <h3 className="text-xl font-bold text-gray-900 mb-2">Adres</h3>
-                      <p className="text-gray-700">ul. Przykładowa 123</p>
-                      <p className="text-gray-700">00-000 Warszawa</p>
+                      <p className="text-gray-700">ul. Krakowska 1</p>
+                      <p className="text-gray-700">43-332, Pisarzowice</p>
                     </div>
                   </div>
                 </div>
@@ -59,7 +59,7 @@ export default function Contact() {
                     <div>
                       <h3 className="text-xl font-bold text-gray-900 mb-2">Telefon</h3>
                       <a href="tel:+48123456789" className="text-blue-600 hover:text-blue-700 text-lg">
-                        +48 123 456 789
+                        +48 662 062 515
                       </a>
                     </div>
                   </div>
@@ -73,7 +73,7 @@ export default function Contact() {
                     <div>
                       <h3 className="text-xl font-bold text-gray-900 mb-2">Email</h3>
                       <a href="mailto:biuro@vd-rachunkowosc.pl" className="text-blue-600 hover:text-blue-700 text-lg">
-                        biuro@vd-rachunkowosc.pl
+                        vd.wioletta.koska@gmail.com
                       </a>
                     </div>
                   </div>
