@@ -29,14 +29,21 @@ function App() {
   };
 
   return (
-<div className="flex items-center justify-between py-6">
-  <div className="flex items-center gap-3">
-    <img src="/logo.png" alt="VD Biuro Rachunkowe" className="h-10 w-auto" />
-    <div className="flex flex-col leading-tight">
-      <h1 className="text-2xl font-bold text-blue-600">VD Biuro Rachunkowe</h1>
-      <p className="text-sm text-gray-600">Wioletta Kóska</p>
-    </div>
-  </div>
+    <div className="min-h-screen bg-white">
+      {/* HEADER */}
+      <header className="sticky top-0 z-50 bg-white shadow-md">
+        <div className="container mx-auto px-6">
+          <div className="flex items-center justify-between py-6">
+            {/* Logo + nazwa */}
+            <div className="flex items-center gap-3">
+              <img src="/logo.png" alt="VD Biuro Rachunkowe" className="h-10 w-auto" />
+              <div className="flex flex-col leading-tight">
+                <h1 className="text-2xl font-bold text-blue-600">VD Biuro Rachunkowe</h1>
+                <p className="text-sm text-gray-600">Wioletta Kóska</p>
+              </div>
+            </div>
+
+            {/* NAV */}
             <nav className="hidden md:flex items-center gap-8">
               <button
                 onClick={() => setCurrentPage('home')}
@@ -73,6 +80,7 @@ function App() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-600 hover:text-blue-700 transition-colors"
+                aria-label="LinkedIn"
               >
                 <Linkedin size={24} />
               </a>
@@ -81,8 +89,10 @@ function App() {
         </div>
       </header>
 
+      {/* CONTENT */}
       <main>{renderPage()}</main>
 
+      {/* FOOTER */}
       <footer className="bg-gray-900 text-white py-12">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
