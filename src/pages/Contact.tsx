@@ -86,7 +86,8 @@ export default function Contact() {
                     </div>
                     <div>
                       <h3 className="text-xl font-bold text-gray-900 mb-2">Godziny otwarcia</h3>
-                      <p className="text-gray-700">Poniedziałek - Piątek: 9:00 - 17:00</p>
+                      <p className="text-gray-700">Poniedziałek, Piątek: 8:00 - 17:00</p>
+                      <p className="text-gray-700">Wtorek - Czwartek: 8:00 - 16:00</p>
                       <p className="text-gray-700">Sobota - Niedziela: Nieczynne</p>
                     </div>
                   </div>
