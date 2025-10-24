@@ -41,7 +41,7 @@ function App() {
   </div>
 </div>
 
-
+)
             <nav className="hidden md:flex items-center gap-8">
               <button
                 onClick={() => setCurrentPage('home')}
@@ -74,7 +74,7 @@ function App() {
                 Kontakt
               </button>
               <a
-                href="https://www.linkedin.com/company/vd-biuro-rachunkowe"
+                href="https://www.linkedin.com/in/wioletta-k%C3%B3ska-b69515390/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-600 hover:text-blue-700 transition-colors"
@@ -98,13 +98,13 @@ function App() {
             </div>
             <div>
               <h4 className="text-lg font-semibold text-blue-400 mb-4">Kontakt</h4>
-              <p className="text-gray-300">Email: biuro@vd-rachunkowosc.pl</p>
-              <p className="text-gray-300">Tel: +48 123 456 789</p>
+              <p className="text-gray-300">Email: vd.wioletta.koska@gmail.com</p>
+              <p className="text-gray-300">Tel: +48 662 068 515</p>
             </div>
             <div>
               <h4 className="text-lg font-semibold text-blue-400 mb-4">Śledź nas</h4>
               <a
-                href="https://www.linkedin.com/company/vd-biuro-rachunkowe"
+                href="https://www.linkedin.com/in/wioletta-k%C3%B3ska-b69515390/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-400 hover:text-blue-300 transition-colors font-semibold"
