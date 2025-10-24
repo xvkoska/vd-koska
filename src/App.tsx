@@ -30,19 +30,17 @@ function App() {
 
   return (
 <div className="flex items-center gap-3 logo">
-  {/* LOGO */}
   <img
     src="/logo.png"
     alt="VD Biuro Rachunkowe"
     className="h-10 w-auto"
   />
-
-  {/* Nazwa obok logo */}
   <div className="flex flex-col leading-tight">
     <h1 className="text-2xl font-bold text-blue-600">VD Biuro Rachunkowe</h1>
     <p className="text-sm text-gray-600">Wioletta Kóska</p>
   </div>
 </div>
+
 
             <nav className="hidden md:flex items-center gap-8">
               <button
