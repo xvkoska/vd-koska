@@ -34,7 +34,7 @@ function App() {
 </div>
 
 
-            {/* NAV */}
+           
             <nav className="hidden md:flex items-center gap-8">
               <button
                 onClick={() => setCurrentPage('home')}
