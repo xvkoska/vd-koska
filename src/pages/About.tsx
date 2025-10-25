@@ -14,8 +14,8 @@ export default function About() {
             <div>
               <h2 className="text-4xl font-bold text-blue-600 mb-6">VD Biuro Rachunkowe</h2>
               <p className="text-gray-700 text-lg mb-6 leading-relaxed">
-                Biuro rachunkowe VD to profesjonalna firma świadcząca usługi księgowe prowadzona
-                przez Wiolettę Kóską. Stawiamy na indywidualne podejście do klienta oraz najwyższą
+                VD Biuro rachunkowe to profesjonalna firma świadcząca usługi księgowe prowadzona
+                przez Wiolettę Kóska. Stawiamy na indywidualne podejście do klienta oraz najwyższą
                 jakość świadczonych usług.
               </p>
 
@@ -52,7 +52,7 @@ export default function About() {
                     </svg>
                   </div>
                   <p className="text-gray-600 text-lg">
-                    Miejsce na zdjęcie biura lub właścicielki
+                    Miejsce na zdjęcie biura
                   </p>
                 </div>
               </div>
