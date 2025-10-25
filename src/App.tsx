@@ -34,7 +34,12 @@ function App() {
         <div className="container mx-auto px-6">
           <div className="flex items-center justify-between py-6">
             <div className="flex items-center">
-              <img src="/vd-logo.png" alt="VD Wioletta Kóska Biuro Rachunkowe" className="h-16 w-auto" />
+              <img
+  src={`${import.meta.env.BASE_URL}vd-logo.png`}
+  alt="VD Wioletta Kóska Biuro Rachunkowe"
+  className="h-16 w-auto"
+/>
+
             </div>
 
             <nav className="hidden md:flex items-center gap-8">
