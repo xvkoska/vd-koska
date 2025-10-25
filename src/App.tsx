@@ -33,12 +33,8 @@ function App() {
       <header className="sticky top-0 z-50 bg-white shadow-md">
         <div className="container mx-auto px-6">
           <div className="flex items-center justify-between py-6">
-            <div className="flex items-center gap-3">
-              <img src="/logo.png" alt="VD Biuro Rachunkowe" className="h-10 w-auto" />
-              <div className="logo">
-                <h1 className="text-2xl font-bold text-blue-600">VD Biuro Rachunkowe</h1>
-                <p className="text-sm text-gray-600">Wioletta Kóska</p>
-              </div>
+            <div className="flex items-center">
+              <img src="/logo copy.png" alt="VD Wioletta Kóska Biuro Rachunkowe" className="h-16 w-auto" />
             </div>
 
             <nav className="hidden md:flex items-center gap-8">
