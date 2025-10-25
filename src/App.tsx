@@ -29,12 +29,18 @@ function App() {
   };
 
   return (
-<div className="flex items-center gap-3">
-  <img src="/logo.png" alt="VD Biuro Rachunkowe" className="h-10 w-auto" />
-</div>
+    <div className="min-h-screen bg-white">
+      <header className="sticky top-0 z-50 bg-white shadow-md">
+        <div className="container mx-auto px-6">
+          <div className="flex items-center justify-between py-6">
+            <div className="flex items-center gap-3">
+              <img src="/logo.png" alt="VD Biuro Rachunkowe" className="h-10 w-auto" />
+              <div className="logo">
+                <h1 className="text-2xl font-bold text-blue-600">VD Biuro Rachunkowe</h1>
+                <p className="text-sm text-gray-600">Wioletta Kóska</p>
+              </div>
+            </div>
 
-
-           
             <nav className="hidden md:flex items-center gap-8">
               <button
                 onClick={() => setCurrentPage('home')}
@@ -80,10 +86,8 @@ function App() {
         </div>
       </header>
 
-      {/* CONTENT */}
       <main>{renderPage()}</main>
 
-      {/* FOOTER */}
       <footer className="bg-gray-900 text-white py-12">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
