@@ -37,7 +37,7 @@ function App() {
               <img
   src={`${import.meta.env.BASE_URL}vd-logo.png`}
   alt="VD Wioletta Kóska Biuro Rachunkowe"
-  className="h-16 w-auto"
+  className="h-20 w-auto"
 />
 
             </div>
