@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 type Testimonial = {
   id: number;
@@ -9,16 +9,48 @@ type Testimonial = {
 };
 
 const DATA: Testimonial[] = [
-  { id: 1, name: "Mariusz W.", when: "31 lipca 2025", rating: 5,
-    text: "Jestem bardzo zadowolona ze współpracy z Panią Wiolettą Kóską. Przemiły kontakt, bardzo szybki. Zawsze dostępna w razie potrzeby. Sprawy rozwiązywane bezproblemowo. Serdecznie polecam i będę polecać innym." },
-  { id: 2, name: "Oliwia L.", when: "2 marca 2025", rating: 5,
-    text: "Profesjonalizm, rzetelność, dyspozycyjność i ogromna wiedza. Zawsze mogę liczyć na fachowe doradztwo, terminowe rozliczenia oraz pomoc w kwestiach podatkowych i finansowych. Dba o szczegóły, a jej zaangażowanie ułatwia prowadzenie firmy." },
-  { id: 3, name: "Klient inFakt.pl", when: "11 lutego 2025", rating: 5,
-    text: "Wiedza, kompetencje, dyspozycyjność. Zawsze szybka reakcja i odpowiedź na pytania oraz problemy." },
-  { id: 4, name: "Piotr S.", when: "18 sierpnia 2025", rating: 5,
-    text: "Profesjonalna osoba, zawsze odbierająca telefon. Polecam." },
-  { id: 5, name: "Małgorzata C.", when: "18 sierpnia 2025", rating: 5,
-    text: "Bardzo miła i rzetelna obsługa. Indywidualne podejście Pani Księgowej." },
+  {
+    id: 1,
+    name: "Mariusz W.",
+    when: "31 lipca 2025",
+    rating: 5,
+    text: "Jestem bardzo zadowolona ze współpracy z Panią Wiolettą Kóską. Przemiły kontakt, bardzo szybki. Zawsze dostępna w razie potrzeby. Sprawy rozwiązywane bezproblemowo. Serdecznie polecam i będę polecać innym.",
+  },
+  {
+    id: 2,
+    name: "Oliwia L.",
+    when: "2 marca 2025",
+    rating: 5,
+    text: "Profesjonalizm, rzetelność, dyspozycyjność i ogromna wiedza. Zawsze mogę liczyć na fachowe doradztwo, terminowe rozliczenia oraz pomoc w kwestiach podatkowych i finansowych. Dba o szczegóły, a jej zaangażowanie ułatwia prowadzenie firmy.",
+  },
+  {
+    id: 3,
+    name: "Klient inFakt.pl",
+    when: "11 lutego 2025",
+    rating: 5,
+    text: "Wiedza, kompetencje, dyspozycyjność. Zawsze szybka reakcja i odpowiedź na pytania oraz problemy.",
+  },
+  {
+    id: 4,
+    name: "Piotr S.",
+    when: "18 sierpnia 2025",
+    rating: 5,
+    text: "Profesjonalna osoba, zawsze odbierająca telefon. Polecam.",
+  },
+  {
+    id: 5,
+    name: "Małgorzata C.",
+    when: "18 sierpnia 2025",
+    rating: 5,
+    text: "Bardzo miła i rzetelna obsługa. Indywidualne podejście Pani Księgowej.",
+  },
+  {
+    id: 6,
+    name: "Klient inFakt.pl",
+    when: "28 stycznia 2025",
+    rating: 5,
+    text: "Bardzo dobry kontakt, księgowa jest rzetelna a przy tym elastyczna.",
+  },
 ];
 
 function chunk<T>(arr: T[], size: number): T[][] {
@@ -51,12 +83,21 @@ export default function Testimonials() {
   const prev = () => setSlide((s) => (s === 0 ? slides.length - 1 : s - 1));
   const next = () => setSlide((s) => (s === slides.length - 1 ? 0 : s + 1));
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      next();
+    }, 6000);
+    return () => clearInterval(interval);
+  }, [slide]);
+
   return (
     <section className="py-16">
       <div className="container mx-auto px-6">
         <div className="rounded-2xl bg-gray-50 p-6 md:p-10">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900">Opinie klientów</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
+              Opinie klientów
+            </h2>
             <a
               href="https://www.infakt.pl/ksiegowi/wioletta-koska"
               target="_blank"
@@ -68,9 +109,9 @@ export default function Testimonials() {
           </div>
 
           <div className="relative">
-            <div className="overflow-x-hidden overflow-y-visible px-3 md:px-4">
+            <div className="overflow-visible px-3 md:px-4">
               <div
-                className="flex transition-transform duration-500 ease-in-out -mx-3 md:-mx-4"
+                className="flex transition-transform duration-700 ease-in-out -mx-3 md:-mx-4"
                 style={{ transform: `translateX(-${slide * 100}%)` }}
               >
                 {slides.map((group, i) => (
@@ -79,20 +120,28 @@ export default function Testimonials() {
                       {group.map((item) => (
                         <article
                           key={item.id}
-                          className="rounded-2xl bg-white shadow-sm ring-1 ring-gray-200 p-6 md:p-8"
+                          className="rounded-2xl bg-white shadow-sm ring-1 ring-gray-200 p-6 md:p-8 relative overflow-visible"
                         >
-                          <div className="-mt-12 mb-2 flex justify-center">
+                          <div className="-mt-10 mb-2 flex justify-center overflow-visible relative z-10">
                             <div className="h-16 w-16 rounded-full bg-blue-600 text-white grid place-items-center text-xl font-semibold shadow-lg ring-4 ring-white">
                               {item.name.replace(/[^A-ZĄĆĘŁŃÓŚŹŻ]/g, "").slice(0, 2) || "IN"}
                             </div>
                           </div>
-                          <h3 className="text-center font-semibold text-gray-900">{item.name}</h3>
-                          <p className="text-center text-sm text-gray-500">{item.when}</p>
+                          <h3 className="text-center font-semibold text-gray-900">
+                            {item.name}
+                          </h3>
+                          <p className="text-center text-sm text-gray-500">
+                            {item.when}
+                          </p>
                           <div className="mt-3">
                             <Stars count={item.rating} />
                           </div>
-                          <p className="mt-4 text-center text-gray-700 leading-relaxed">{item.text}</p>
-                          <p className="mt-4 text-center text-xs text-gray-400">Źródło: inFakt.pl</p>
+                          <p className="mt-4 text-center text-gray-700 leading-relaxed">
+                            {item.text}
+                          </p>
+                          <p className="mt-4 text-center text-xs text-gray-400">
+                            Źródło: inFakt.pl
+                          </p>
                         </article>
                       ))}
                     </div>
@@ -104,14 +153,14 @@ export default function Testimonials() {
             <button
               onClick={prev}
               aria-label="Poprzednia opinia"
-              className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 h-10 w-10 items-center justify-center rounded-full bg-white shadow ring-1 ring-gray-200 hover:bg-gray-50"
+              className="hidden md:flex absolute left-3 top-1/2 -translate-y-1/2 h-10 w-10 items-center justify-center rounded-full bg-white shadow ring-1 ring-gray-200 hover:bg-gray-50 z-10"
             >
               ‹
             </button>
             <button
               onClick={next}
               aria-label="Następna opinia"
-              className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 h-10 w-10 items-center justify-center rounded-full bg-white shadow ring-1 ring-gray-200 hover:bg-gray-50"
+              className="hidden md:flex absolute right-3 top-1/2 -translate-y-1/2 h-10 w-10 items-center justify-center rounded-full bg-white shadow ring-1 ring-gray-200 hover:bg-gray-50 z-10"
             >
               ›
             </button>
