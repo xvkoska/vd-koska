@@ -1,26 +1,10 @@
 import { MapPin, Phone, Mail, Clock, Linkedin } from 'lucide-react';
-import { useState } from 'react';
 
-export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    message: ''
-  });
+interface ContactProps {
+  onNavigate: (page: 'home' | 'about' | 'numbers' | 'services' | 'contact' | 'privacy-policy') => void;
+}
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    alert('Dziękujemy za wiadomość! Skontaktujemy się wkrótce.');
-    setFormData({ name: '', email: '', phone: '', message: '' });
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
+export default function Contact({ onNavigate }: ContactProps) {
 
   return (
     <>
@@ -117,7 +101,10 @@ export default function Contact() {
             <div>
               <div className="bg-white rounded-2xl shadow-lg p-8">
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">Wyślij wiadomość</h2>
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" className="space-y-6">
+                  <input type="hidden" name="form-name" value="contact" />
+                  <input name="bot-field" className="hidden" />
+
                   <div>
                     <label htmlFor="name" className="block text-gray-700 font-semibold mb-2">
                       Imię i nazwisko
@@ -126,8 +113,6 @@ export default function Contact() {
                       type="text"
                       id="name"
                       name="name"
-                      value={formData.name}
-                      onChange={handleChange}
                       required
                       className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-blue-600 focus:outline-none transition-colors"
                     />
@@ -135,14 +120,12 @@ export default function Contact() {
 
                   <div>
                     <label htmlFor="email" className="block text-gray-700 font-semibold mb-2">
-                      Email
+                      E-mail
                     </label>
                     <input
                       type="email"
                       id="email"
                       name="email"
-                      value={formData.email}
-                      onChange={handleChange}
                       required
                       className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-blue-600 focus:outline-none transition-colors"
                     />
@@ -150,14 +133,12 @@ export default function Contact() {
 
                   <div>
                     <label htmlFor="phone" className="block text-gray-700 font-semibold mb-2">
-                      Telefon
+                      Telefon (opcjonalnie)
                     </label>
                     <input
                       type="tel"
                       id="phone"
                       name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
                       className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-blue-600 focus:outline-none transition-colors"
                     />
                   </div>
@@ -169,16 +150,26 @@ export default function Contact() {
                     <textarea
                       id="message"
                       name="message"
-                      value={formData.message}
-                      onChange={handleChange}
                       required
                       rows={5}
                       className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-blue-600 focus:outline-none transition-colors resize-vertical"
                     ></textarea>
                   </div>
 
+                  <p className="text-sm text-gray-600 mt-2">
+                    Wysyłając formularz, wyrażasz zgodę z naszą{' '}
+                    <button
+                      type="button"
+                      onClick={() => onNavigate('privacy-policy')}
+                      className="underline text-blue-600 hover:text-blue-700"
+                    >
+                      polityką prywatności
+                    </button>
+                    .
+                  </p>
+
                   <button type="submit" className="btn-primary w-full">
-                    Wyślij wiadomość
+                    Dziękujemy! Wrócimy do Ciebie wkrótce.
                   </button>
                 </form>
               </div>

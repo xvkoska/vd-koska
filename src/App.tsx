@@ -5,8 +5,9 @@ import About from './pages/About';
 import Numbers from './pages/Numbers';
 import Services from './pages/Services';
 import Contact from './pages/Contact';
+import PrivacyPolicy from './pages/PrivacyPolicy';
 
-type Page = 'home' | 'about' | 'numbers' | 'services' | 'contact';
+type Page = 'home' | 'about' | 'numbers' | 'services' | 'contact' | 'privacy-policy';
 
 function App() {
   const [currentPage, setCurrentPage] = useState<Page>('home');
@@ -22,7 +23,9 @@ function App() {
       case 'services':
         return <Services />;
       case 'contact':
-        return <Contact />;
+        return <Contact onNavigate={setCurrentPage} />;
+      case 'privacy-policy':
+        return <PrivacyPolicy />;
       default:
         return <Home onNavigate={setCurrentPage} />;
     }
@@ -89,28 +92,45 @@ function App() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
             <div>
               <h3 className="text-xl font-bold text-blue-400 mb-4">VD Biuro Rachunkowe</h3>
-              <p className="text-gray-300">Wioletta Kóska</p>
-              <p className="text-gray-300">Profesjonalne usługi księgowe</p>
+              <address className="not-italic">
+                <p className="text-gray-300 font-semibold">Wioletta Kóska</p>
+                <p className="text-gray-300 text-sm mt-2">ul. Krakowska 1, 43-332 Pisarzowice</p>
+                <p className="text-gray-300 text-sm">NIP: 5471028673</p>
+              </address>
             </div>
             <div>
               <h4 className="text-lg font-semibold text-blue-400 mb-4">Kontakt</h4>
-              <p className="text-gray-300">Email: vd.wioletta.koska@gmail.com</p>
-              <p className="text-gray-300">Tel: +48 662 068 515</p>
+              <p className="text-gray-300 text-sm">E-mail: <a href="mailto:vd.wioletta.koska@gmail.com" className="hover:underline">vd.wioletta.koska@gmail.com</a></p>
+              <p className="text-gray-300 text-sm mt-2">Tel.: <a href="tel:+48662068515" className="hover:underline">+48 662 068 515</a></p>
             </div>
             <div>
-              <h4 className="text-lg font-semibold text-blue-400 mb-4">Śledź nas</h4>
-              <a
-                href="https://www.linkedin.com/in/wioletta-k%C3%B3ska-b69515390/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-400 hover:text-blue-300 transition-colors font-semibold"
-              >
-                LinkedIn
-              </a>
+              <h4 className="text-lg font-semibold text-blue-400 mb-4">Linki</h4>
+              <div className="flex flex-col gap-2">
+                <button
+                  onClick={() => setCurrentPage('privacy-policy')}
+                  className="text-gray-300 text-sm hover:underline text-left"
+                >
+                  Polityka prywatności
+                </button>
+                <button
+                  onClick={() => setCurrentPage('contact')}
+                  className="text-gray-300 text-sm hover:underline text-left"
+                >
+                  Kontakt
+                </button>
+                <a
+                  href="https://www.linkedin.com/in/wioletta-k%C3%B3ska-b69515390/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-300 text-sm hover:underline"
+                >
+                  LinkedIn
+                </a>
+              </div>
             </div>
           </div>
           <div className="border-t border-gray-800 pt-8 text-center text-gray-400">
-            <p>&copy; {new Date().getFullYear()} VD Biuro Rachunkowe. Wszelkie prawa zastrzeżone.</p>
+            <p className="text-sm">&copy; {new Date().getFullYear()} VD Biuro Rachunkowe. Wszelkie prawa zastrzeżone.</p>
           </div>
         </div>
       </footer>
