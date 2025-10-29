@@ -48,7 +48,6 @@ export default function Home({ onNavigate }: HomeProps) {
 
         </div>
       </section>
-<Testimonials />
 
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-6">
@@ -90,7 +89,9 @@ export default function Home({ onNavigate }: HomeProps) {
           </div>
         </div>
       </section>
-
+      
+<Testimonials />
+      
       <section className="cta-section">
         <div className="container mx-auto px-6 py-20 text-center">
           <h2 className="text-4xl font-bold text-white mb-6">Gotowy na współpracę?</h2>
