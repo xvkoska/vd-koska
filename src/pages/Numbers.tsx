@@ -17,7 +17,7 @@ export default function Numbers() {
               <div className="flex justify-center mb-4">
                 <Award size={64} className="text-blue-600" />
               </div>
-              <div className="stat-number">10+</div>
+              <div className="stat-number">30+</div>
               <div className="stat-label">Lat doświadczenia</div>
             </div>
 
@@ -77,7 +77,7 @@ export default function Numbers() {
               <div className="achievement-card">
                 <h3 className="text-2xl font-bold text-blue-600 mb-3">Ciągły rozwój</h3>
                 <p className="text-gray-700 text-lg">
-                  Regularnie uczestniczymy w szkoleniach i konferencjach branżowych. Inwestujemy
+                  Regularnie uczestniczymy w szkoleniach i inwestujemy
                   w najnowsze technologie księgowe, aby zapewnić naszym klientom najwyższą jakość
                   usług.
                 </p>
