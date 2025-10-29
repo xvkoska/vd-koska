@@ -84,20 +84,16 @@ export default function Testimonials() {
   const next = () => setSlide((s) => (s === slides.length - 1 ? 0 : s + 1));
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      next();
-    }, 6000);
+    const interval = setInterval(next, 6000);
     return () => clearInterval(interval);
-  }, [slide]);
+  }, [slide]); // utrzymuje auto-przewijanie, także po kliknięciach
 
   return (
     <section className="py-16">
       <div className="container mx-auto px-6">
         <div className="rounded-2xl bg-gray-50 p-6 md:p-10">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
-              Opinie klientów
-            </h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900">Opinie klientów</h2>
             <a
               href="https://www.infakt.pl/ksiegowi/wioletta-koska"
               target="_blank"
@@ -110,7 +106,6 @@ export default function Testimonials() {
 
           <div className="relative">
             <div className="overflow-x-hidden overflow-y-visible px-3 md:px-4">
-
               <div
                 className="flex transition-transform duration-700 ease-in-out -mx-3 md:-mx-4"
                 style={{ transform: `translateX(-${slide * 100}%)` }}
@@ -121,28 +116,23 @@ export default function Testimonials() {
                       {group.map((item) => (
                         <article
                           key={item.id}
-                          className="rounded-2xl bg-white shadow-sm ring-1 ring-gray-200 p-6 md:p-8 relative overflow-visible"
+                          className="relative overflow-visible rounded-2xl bg-white shadow-sm ring-1 ring-gray-200 pt-12 p-6 md:p-8"
                         >
-                          <div className="-mt-10 mb-2 flex justify-center overflow-visible relative z-10">
+                          <div className="absolute -top-8 left-1/2 -translate-x-1/2 z-10">
                             <div className="h-16 w-16 rounded-full bg-blue-600 text-white grid place-items-center text-xl font-semibold shadow-lg ring-4 ring-white">
                               {item.name.replace(/[^A-ZĄĆĘŁŃÓŚŹŻ]/g, "").slice(0, 2) || "IN"}
                             </div>
                           </div>
-                          <h3 className="text-center font-semibold text-gray-900">
-                            {item.name}
-                          </h3>
-                          <p className="text-center text-sm text-gray-500">
-                            {item.when}
-                          </p>
+
+                          <h3 className="text-center font-semibold text-gray-900">{item.name}</h3>
+                          <p className="text-center text-sm text-gray-500">{item.when}</p>
+
                           <div className="mt-3">
                             <Stars count={item.rating} />
                           </div>
-                          <p className="mt-4 text-center text-gray-700 leading-relaxed">
-                            {item.text}
-                          </p>
-                          <p className="mt-4 text-center text-xs text-gray-400">
-                            Źródło: inFakt.pl
-                          </p>
+
+                          <p className="mt-4 text-center text-gray-700 leading-relaxed">{item.text}</p>
+                          <p className="mt-4 text-center text-xs text-gray-400">Źródło: inFakt.pl</p>
                         </article>
                       ))}
                     </div>
