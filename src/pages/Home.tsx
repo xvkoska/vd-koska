@@ -27,20 +27,22 @@ export default function Home({ onNavigate }: HomeProps) {
           <p className="text-lg md:text-xl text-gray-600 mb-10 max-w-3xl mx-auto">
             Kompleksowa obsługa księgowa z pasją i zaangażowaniem
           </p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <button
-              onClick={() => onNavigate('contact')}
-              className="bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg shadow hover:bg-blue-700 transition"
-            >
-              Skontaktuj się z nami
-            </button>
-            <button
-              onClick={() => onNavigate('services')}
-              className="border-2 border-blue-600 text-blue-600 font-semibold px-6 py-3 rounded-lg hover:bg-blue-50 transition"
-            >
-              Zakres usług
-            </button>
-          </div>
+        <div className="flex flex-wrap gap-4 justify-center">
+  <button
+    onClick={() => onNavigate('contact')}
+    className="bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg shadow hover:bg-blue-700 transform hover:scale-105 hover:shadow-lg transition-all duration-200"
+  >
+    Skontaktuj się z nami
+  </button>
+
+  <button
+    onClick={() => onNavigate('services')}
+    className="border-2 border-blue-600 text-blue-600 font-semibold px-6 py-3 rounded-lg hover:bg-blue-50 transform hover:scale-105 hover:shadow-md transition-all duration-200"
+  >
+    Zakres usług
+  </button>
+</div>
+
         </div>
       </section>
 
