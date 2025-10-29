@@ -114,15 +114,16 @@ export default function Testimonials() {
                   <div key={i} className="w-full shrink-0 px-3 md:px-4">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                       {group.map((item) => (
-                        <article
-                          key={item.id}
-                          className="relative overflow-visible rounded-2xl bg-white shadow-sm ring-1 ring-gray-200 pt-12 p-6 md:p-8"
-                        >
-                          <div className="absolute -top-8 left-1/2 -translate-x-1/2 z-10">
-                            <div className="h-16 w-16 rounded-full bg-blue-600 text-white grid place-items-center text-xl font-semibold shadow-lg ring-4 ring-white">
-                              {item.name.replace(/[^A-ZĄĆĘŁŃÓŚŹŻ]/g, "").slice(0, 2) || "IN"}
-                            </div>
-                          </div>
+                      <article
+  key={item.id}
+  className="relative overflow-visible rounded-2xl bg-white shadow-sm ring-1 ring-gray-200 pt-16 p-6 md:p-8"
+>
+  <div className="absolute top-4 left-1/2 -translate-x-1/2 z-10">
+    <div className="h-16 w-16 rounded-full bg-blue-600 text-white grid place-items-center text-xl font-semibold shadow-lg ring-4 ring-white">
+      {item.name.replace(/[^A-ZĄĆĘŁŃÓŚŹŻ]/g, "").slice(0, 2) || "IN"}
+    </div>
+  </div>
+
 
                           <h3 className="text-center font-semibold text-gray-900">{item.name}</h3>
                           <p className="text-center text-sm text-gray-500">{item.when}</p>
