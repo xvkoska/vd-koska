@@ -48,7 +48,7 @@ export default function Home({ onNavigate }: HomeProps) {
 
         </div>
       </section>
-<Testimonials />
+
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-6">
           <h2 className="text-4xl font-bold text-center text-gray-700 mb-16">
@@ -90,7 +90,7 @@ export default function Home({ onNavigate }: HomeProps) {
         </div>
       </section>
       
-
+<Testimonials />
       
       <section className="cta-section">
         <div className="container mx-auto px-6 py-20 text-center">
