@@ -101,26 +101,26 @@ export default function Services() {
               <div className="flex justify-center mb-6">
                 <TrendingUp size={56} className="text-blue-600" />
               </div>
-              <h3 className="text-2xl font-bold text-blue-600 mb-4">Rejestracje i rozliczenia działalności</h3>
+              <h3 className="text-2xl font-bold text-blue-600 mb-4">Rejestracja działalności i spółek</h3>
               <p className="text-gray-600 mb-6">
-                Wsparcie dla osób zakładających działalność gospodarczą oraz przedsiębiorców potrzebujących kompleksowej obsługi formalno-podatkowej.
+                Pomoc w założeniu i rejestracji nowych firm oraz spółek, wraz z obsługą formalności urzędowych.
               </p>
               <ul className="space-y-3 text-gray-700">
                 <li className="flex items-start">
                   <span className="text-blue-600 mr-3 mt-1">✓</span>
-                  <span>Pomoc w rejestracji firmy lub spółki z o.o.</span>
+                  <span>Rejestracja działalności gospodarczej i spółek z o.o.</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-blue-600 mr-3 mt-1">✓</span>
-                  <span>Wybór odpowiedniej formy opodatkowania i zgłoszenia do ZUS</span>
+                  <span>Przygotowanie dokumentów i zgłoszeń do urzędów</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-blue-600 mr-3 mt-1">✓</span>
-                  <span>Przygotowanie i wysyłka deklaracji podatkowych (PIT, VAT, CIT)</span>
+                  <span>Wybór formy opodatkowania przy rozpoczęciu działalności</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-blue-600 mr-3 mt-1">✓</span>
-                  <span>Kontakt z urzędami i wsparcie przy bieżących formalnościach</span>
+                  <span>Wsparcie przy rozpoczęciu rozliczeń i prowadzeniu ewidencji</span>
                 </li>
               </ul>
             </div>
