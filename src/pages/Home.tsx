@@ -9,7 +9,7 @@ interface HomeProps {
 export default function Home({ onNavigate }: HomeProps) {
   return (
     <>
-      {/* Górny pasek z logo */}
+     
       <section className="bg-gradient-to-b from-blue-500 to-blue-700 py-12 md:py-16 text-center">
         <div className="container mx-auto px-6">
           <img
@@ -22,7 +22,7 @@ export default function Home({ onNavigate }: HomeProps) {
         </div>
       </section>
 
-      {/* HERO: nagłówek + CTA */}
+     
       <section className="bg-gray-50 text-center py-16">
         <div className="container mx-auto px-6">
           <h1 className="text-3xl md:text-4xl font-bold text-blue-500 mb-4 leading-snug">
@@ -50,7 +50,7 @@ export default function Home({ onNavigate }: HomeProps) {
         </div>
       </section>
 
-      {/* SEPARATOR: delikatna fala oddzielająca sekcje */}
+    
       <div className="bg-white">
         <svg
           className="w-full h-10 text-gray-100"
@@ -63,7 +63,7 @@ export default function Home({ onNavigate }: HomeProps) {
         </svg>
       </div>
 
-      {/* Dlaczego my? */}
+
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-6">
           <h2 className="text-4xl font-bold text-center text-blue-500 mb-16">
@@ -107,10 +107,10 @@ export default function Home({ onNavigate }: HomeProps) {
         </div>
       </section>
 
-      {/* Opinie */}
+     
       <Testimonials />
 
-      {/* CTA na dole */}
+    
       <section className="cta-section">
         <div className="container mx-auto px-6 py-20 text-center">
           <h2 className="text-4xl font-bold text-white mb-6">Gotowy na współpracę?</h2>
