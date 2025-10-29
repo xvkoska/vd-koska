@@ -81,7 +81,7 @@ function Stars({ count }: { count: number }) {
 }
 
 export default function Testimonials() {
-  const slides = chunk(DATA, 3); // 3 karty na slajd (jak na referencji)
+  const slides = chunk(DATA, 3);
   const [slide, setSlide] = useState(0);
 
   const prev = () => setSlide((s) => (s === 0 ? slides.length - 1 : s - 1));
@@ -94,7 +94,7 @@ export default function Testimonials() {
 
   return (
     <section className="py-16 overflow-visible">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-6 overflow-visible">
         <div className="rounded-3xl bg-gray-50 p-6 md:p-10 overflow-visible">
           <div className="flex items-center justify-between mb-8">
             <h2 className="text-3xl font-bold text-gray-900">Opinie klientów</h2>
@@ -109,23 +109,20 @@ export default function Testimonials() {
           </div>
 
           <div className="relative overflow-visible">
-            {/* viewport: tniemy poziomo, przepuszczamy pion (dla avatara) */}
             <div className="overflow-x-hidden overflow-y-visible px-2 md:px-4">
-              {/* taśma slajdów */}
               <div
                 className="flex transition-transform duration-700 ease-in-out -mx-3 md:-mx-4"
                 style={{ transform: `translateX(-${slide * 100}%)` }}
               >
                 {slides.map((group, i) => (
-                  <div key={i} className="w-full shrink-0 px-3 md:px-4">
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                  <div key={i} className="w-full shrink-0 px-3 md:px-4 overflow-visible">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 overflow-visible">
                       {group.map((item) => (
                         <article
                           key={item.id}
                           className="relative overflow-visible rounded-2xl bg-white shadow-[0_6px_30px_rgba(0,0,0,0.08)] ring-1 ring-gray-200 p-8 pt-16"
                         >
-                          {/* avatar – duży, wychodzi ponad kartę, ale wewnątrz viewportu jest widoczny */}
-                          <div className="absolute -top-10 left-1/2 -translate-x-1/2 z-10">
+                          <div className="absolute -top-12 left-1/2 -translate-x-1/2 z-10 overflow-visible">
                             <div className="h-20 w-20 rounded-full bg-blue-600 text-white grid place-items-center text-2xl font-semibold shadow-xl ring-4 ring-white">
                               {item.name
                                 .replace(/[^A-ZĄĆĘŁŃÓŚŹŻ]/g, "")
@@ -133,7 +130,7 @@ export default function Testimonials() {
                             </div>
                           </div>
 
-                          <h3 className="text-center font-semibold text-gray-900">
+                          <h3 className="text-center font-semibold text-gray-900 mt-2">
                             {item.name}
                           </h3>
                           <p className="text-center text-sm text-gray-500">
@@ -158,7 +155,6 @@ export default function Testimonials() {
               </div>
             </div>
 
-            {/* strzałki — bąbelki na zewnątrz siatki, jak w referencji */}
             <button
               onClick={prev}
               aria-label="Poprzednie opinie"
@@ -175,7 +171,6 @@ export default function Testimonials() {
             </button>
           </div>
 
-          {/* kropki nawigacyjne */}
           <div className="mt-8 flex justify-center gap-2">
             {slides.map((_, i) => (
               <button
