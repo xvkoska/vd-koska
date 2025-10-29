@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 type Testimonial = {
   id: number;
@@ -14,21 +14,24 @@ const DATA: Testimonial[] = [
     name: "Mariusz W.",
     when: "31 lipca 2025",
     rating: 5,
-    text: "Jestem bardzo zadowolona ze współpracy z Panią Wiolettą Kóską. Przemiły kontakt, bardzo szybki. Zawsze dostępna w razie potrzeby. Sprawy rozwiązywane bezproblemowo. Serdecznie polecam i będę polecać innym.",
+    text:
+      "Jestem bardzo zadowolona ze współpracy z Panią Wiolettą Kóską. Przemiły kontakt, bardzo szybki. Zawsze dostępna w razie potrzeby. Sprawy rozwiązywane bezproblemowo. Serdecznie polecam i będę polecać innym.",
   },
   {
     id: 2,
     name: "Oliwia L.",
     when: "2 marca 2025",
     rating: 5,
-    text: "Profesjonalizm, rzetelność, dyspozycyjność i ogromna wiedza. Zawsze mogę liczyć na fachowe doradztwo, terminowe rozliczenia oraz pomoc w kwestiach podatkowych i finansowych. Dba o szczegóły, a jej zaangażowanie ułatwia prowadzenie firmy.",
+    text:
+      "Profesjonalizm, rzetelność, dyspozycyjność i ogromna wiedza. Zawsze mogę liczyć na fachowe doradztwo, terminowe rozliczenia oraz pomoc w kwestiach podatkowych i finansowych. Dba o szczegóły, a jej zaangażowanie ułatwia prowadzenie firmy.",
   },
   {
     id: 3,
     name: "Klient inFakt.pl",
     when: "11 lutego 2025",
     rating: 5,
-    text: "Wiedza, kompetencje, dyspozycyjność. Zawsze szybka reakcja i odpowiedź na pytania oraz problemy.",
+    text:
+      "Wiedza, kompetencje, dyspozycyjność. Zawsze szybka reakcja i odpowiedź na pytania oraz problemy.",
   },
   {
     id: 4,
@@ -42,7 +45,8 @@ const DATA: Testimonial[] = [
     name: "Małgorzata C.",
     when: "18 sierpnia 2025",
     rating: 5,
-    text: "Bardzo miła i rzetelna obsługa. Indywidualne podejście Pani Księgowej.",
+    text:
+      "Bardzo miła i rzetelna obsługa. Indywidualne podejście Pani Księgowej.",
   },
   {
     id: 6,
@@ -77,23 +81,23 @@ function Stars({ count }: { count: number }) {
 }
 
 export default function Testimonials() {
-  const slides = chunk(DATA, 3);
+  const slides = chunk(DATA, 3); // 3 karty na slajd (jak na referencji)
   const [slide, setSlide] = useState(0);
 
   const prev = () => setSlide((s) => (s === 0 ? slides.length - 1 : s - 1));
   const next = () => setSlide((s) => (s === slides.length - 1 ? 0 : s + 1));
 
   useEffect(() => {
-    const interval = setInterval(next, 6000);
-    return () => clearInterval(interval);
-  }, [slide]); // utrzymuje auto-przewijanie, także po kliknięciach
+    const id = setInterval(next, 6000);
+    return () => clearInterval(id);
+  }, [slide]);
 
   return (
-    <section className="py-16">
+    <section className="py-16 overflow-visible">
       <div className="container mx-auto px-6">
-        <div className="rounded-2xl bg-gray-50 p-6 md:p-10">
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900">Opinie klientów</h2>
+        <div className="rounded-3xl bg-gray-50 p-6 md:p-10 overflow-visible">
+          <div className="flex items-center justify-between mb-8">
+            <h2 className="text-3xl font-bold text-gray-900">Opinie klientów</h2>
             <a
               href="https://www.infakt.pl/ksiegowi/wioletta-koska"
               target="_blank"
@@ -104,36 +108,48 @@ export default function Testimonials() {
             </a>
           </div>
 
-          <div className="relative">
-            <div className="overflow-x-hidden overflow-y-visible px-3 md:px-4">
+          <div className="relative overflow-visible">
+            {/* viewport: tniemy poziomo, przepuszczamy pion (dla avatara) */}
+            <div className="overflow-x-hidden overflow-y-visible px-2 md:px-4">
+              {/* taśma slajdów */}
               <div
                 className="flex transition-transform duration-700 ease-in-out -mx-3 md:-mx-4"
                 style={{ transform: `translateX(-${slide * 100}%)` }}
               >
                 {slides.map((group, i) => (
                   <div key={i} className="w-full shrink-0 px-3 md:px-4">
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                       {group.map((item) => (
-                      <article
-  key={item.id}
-  className="relative overflow-visible rounded-2xl bg-white shadow-sm ring-1 ring-gray-200 pt-16 p-6 md:p-8"
->
-  <div className="absolute top-4 left-1/2 -translate-x-1/2 z-10">
-    <div className="h-16 w-16 rounded-full bg-blue-600 text-white grid place-items-center text-xl font-semibold shadow-lg ring-4 ring-white">
-      {item.name.replace(/[^A-ZĄĆĘŁŃÓŚŹŻ]/g, "").slice(0, 2) || "IN"}
-    </div>
-  </div>
+                        <article
+                          key={item.id}
+                          className="relative overflow-visible rounded-2xl bg-white shadow-[0_6px_30px_rgba(0,0,0,0.08)] ring-1 ring-gray-200 p-8 pt-16"
+                        >
+                          {/* avatar – duży, wychodzi ponad kartę, ale wewnątrz viewportu jest widoczny */}
+                          <div className="absolute -top-10 left-1/2 -translate-x-1/2 z-10">
+                            <div className="h-20 w-20 rounded-full bg-blue-600 text-white grid place-items-center text-2xl font-semibold shadow-xl ring-4 ring-white">
+                              {item.name
+                                .replace(/[^A-ZĄĆĘŁŃÓŚŹŻ]/g, "")
+                                .slice(0, 2) || "IN"}
+                            </div>
+                          </div>
 
-
-                          <h3 className="text-center font-semibold text-gray-900">{item.name}</h3>
-                          <p className="text-center text-sm text-gray-500">{item.when}</p>
+                          <h3 className="text-center font-semibold text-gray-900">
+                            {item.name}
+                          </h3>
+                          <p className="text-center text-sm text-gray-500">
+                            {item.when}
+                          </p>
 
                           <div className="mt-3">
                             <Stars count={item.rating} />
                           </div>
 
-                          <p className="mt-4 text-center text-gray-700 leading-relaxed">{item.text}</p>
-                          <p className="mt-4 text-center text-xs text-gray-400">Źródło: inFakt.pl</p>
+                          <p className="mt-4 text-center text-gray-700 leading-relaxed">
+                            {item.text}
+                          </p>
+                          <p className="mt-4 text-center text-xs text-gray-400">
+                            Źródło: inFakt.pl
+                          </p>
                         </article>
                       ))}
                     </div>
@@ -142,29 +158,33 @@ export default function Testimonials() {
               </div>
             </div>
 
+            {/* strzałki — bąbelki na zewnątrz siatki, jak w referencji */}
             <button
               onClick={prev}
-              aria-label="Poprzednia opinia"
-              className="hidden md:flex absolute left-3 top-1/2 -translate-y-1/2 h-10 w-10 items-center justify-center rounded-full bg-white shadow ring-1 ring-gray-200 hover:bg-gray-50 z-10"
+              aria-label="Poprzednie opinie"
+              className="hidden md:flex absolute -left-4 top-1/2 -translate-y-1/2 h-11 w-11 items-center justify-center rounded-full bg-white shadow-md ring-1 ring-gray-200 hover:bg-gray-50"
             >
               ‹
             </button>
             <button
               onClick={next}
-              aria-label="Następna opinia"
-              className="hidden md:flex absolute right-3 top-1/2 -translate-y-1/2 h-10 w-10 items-center justify-center rounded-full bg-white shadow ring-1 ring-gray-200 hover:bg-gray-50 z-10"
+              aria-label="Następne opinie"
+              className="hidden md:flex absolute -right-4 top-1/2 -translate-y-1/2 h-11 w-11 items-center justify-center rounded-full bg-white shadow-md ring-1 ring-gray-200 hover:bg-gray-50"
             >
               ›
             </button>
           </div>
 
-          <div className="mt-6 flex justify-center gap-2">
+          {/* kropki nawigacyjne */}
+          <div className="mt-8 flex justify-center gap-2">
             {slides.map((_, i) => (
               <button
                 key={i}
                 onClick={() => setSlide(i)}
                 aria-label={`Slajd ${i + 1}`}
-                className={`h-2.5 w-2.5 rounded-full transition ${i === slide ? "bg-blue-600" : "bg-gray-300 hover:bg-gray-400"}`}
+                className={`h-2.5 w-2.5 rounded-full transition ${
+                  i === slide ? "bg-blue-600" : "bg-gray-300 hover:bg-gray-400"
+                }`}
               />
             ))}
           </div>
