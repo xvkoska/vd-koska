@@ -9,6 +9,13 @@ export default function Home({ onNavigate }: HomeProps) {
     <>
       <section className="hero-section">
         <div className="container mx-auto px-6 py-24 text-center">
+          <img
+      src={`${import.meta.env.BASE_URL}logo-biale.svg`}
+      alt="VD Biuro Rachunkowe Wioletta Kóska"
+      className="mx-auto mb-8 h-16 w-auto md:h-20"
+      loading="eager"
+      decoding="async"
+    />
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 leading-snug">
             Profesjonalne usługi księgowe dla Twojej firmy
           </h1>
