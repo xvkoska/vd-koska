@@ -1,6 +1,3 @@
-Okej — poniżej masz **cały gotowy kod** `Testimonials.tsx` (z płynnym przesuwaniem i poprawionymi marginesami, bez żadnych komentarzy):
-
-```tsx
 import { useState } from "react";
 
 type Testimonial = {
@@ -135,4 +132,3 @@ export default function Testimonials() {
     </section>
   );
 }
-```
