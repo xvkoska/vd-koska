@@ -11,7 +11,7 @@ type Testimonial = {
 const DATA: Testimonial[] = [
   {
     id: 1,
-    name: "Mariusz Witosławski",
+    name: "Mariusz W.",
     when: "31 lipca 2025",
     rating: 5,
     text:
@@ -19,7 +19,7 @@ const DATA: Testimonial[] = [
   },
   {
     id: 2,
-    name: "Oliwia Lewandowska",
+    name: "Oliwia L.",
     when: "2 marca 2025",
     rating: 5,
     text:
@@ -35,7 +35,7 @@ const DATA: Testimonial[] = [
   },
   {
     id: 4,
-    name: "Piotr Szczepański",
+    name: "Piotr S.",
     when: "18 sierpnia 2025",
     rating: 5,
     text:
@@ -43,7 +43,7 @@ const DATA: Testimonial[] = [
   },
   {
     id: 5,
-    name: "Małgorzata Ciemięga",
+    name: "Małgorzata C.",
     when: "18 sierpnia 2025",
     rating: 5,
     text:
