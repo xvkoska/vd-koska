@@ -93,9 +93,9 @@ export default function Testimonials() {
   }, [slide]);
 
   return (
-    <section className="py-16 overflow-visible">
+    <section className="py-28 md:py-32 overflow-visible">
       <div className="container mx-auto px-6 overflow-visible">
-        <div className="rounded-3xl bg-gray-50 p-6 md:p-10 pt-12 md:pt-14 overflow-visible">
+        <div className="rounded-3xl bg-gray-50 p-10 md:p-16 pt-20 md:pt-24 overflow-visible">
           <div className="flex items-center justify-between mb-8">
             <h2 className="text-3xl font-bold text-gray-900">Opinie klientów</h2>
             <a
