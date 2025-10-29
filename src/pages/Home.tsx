@@ -12,7 +12,7 @@ export default function Home({ onNavigate }: HomeProps) {
           <img
             src={`${import.meta.env.BASE_URL}logo-biale.svg`}
             alt="VD Biuro Rachunkowe Wioletta Kóska"
-            className="mx-auto h-40 w-auto md:h-48"
+            className="mx-auto h-40 w-auto md:h-56"
             loading="eager"
             decoding="async"
           />
