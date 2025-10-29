@@ -108,7 +108,8 @@ export default function Testimonials() {
             </a>
           </div>
 
-          <div className="relative overflow-visible mt-6 md:mt-8">
+          <div className="relative overflow-visible mt-10 md:mt-12 pb-16 md:pb-20 min-h-[520px] md:min-h-[560px]">
+
             <div className="overflow-x-hidden overflow-y-visible px-2 md:px-4">
               <div
                 className="flex transition-transform duration-700 ease-in-out -mx-3 md:-mx-4"
