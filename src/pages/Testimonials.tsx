@@ -87,11 +87,11 @@ export default function Testimonials() {
               style={{ transform: `translateX(-${pageIndex * 100}%)` }}
             >
               {PAGES.map((page, i) => (
-                <div key={i} className="min-w-full">
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    {page.map((item) => (
-                      <article key={`${i}-${item.id}`}
-                        className="rounded-2xl bg-white shadow-sm ring-1 ring-gray-200 p-6 md:p-8">
+               <div key={i} className="min-w-full box-border px-3 md:px-5">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+          {page.map((item) => (
+            <article key={`${i}-${item.id}`}
+              className="rounded-2xl bg-white shadow-sm ring-1 ring-gray-200 p-6 md:p-8">
                         <div className="-mt-12 mb-2 flex justify-center">
                           <div className="h-16 w-16 rounded-full bg-blue-600 text-white grid place-items-center text-xl font-semibold shadow-lg ring-4 ring-white overflow-hidden">
                             {item.name.replace(/[^A-ZĄĆĘŁŃÓŚŹŻ]/g, "").slice(0, 2) || "IN"}
