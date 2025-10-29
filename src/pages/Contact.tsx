@@ -169,7 +169,7 @@ export default function Contact({ onNavigate }: ContactProps) {
                   </p>
 
                   <button type="submit" className="btn-primary w-full">
-                    Dziękujemy! Wrócimy do Ciebie wkrótce.
+                    Wyślij wiadomość
                   </button>
                 </form>
               </div>
