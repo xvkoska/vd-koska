@@ -1,6 +1,10 @@
 import { TrendingUp, Shield, Zap, Briefcase } from 'lucide-react';
 
-export default function Home() {
+interface HomeProps {
+  onNavigate: (page: 'home' | 'about' | 'numbers' | 'services' | 'contact') => void;
+}
+
+export default function Home({ onNavigate }: HomeProps) {
   return (
     <>
       <section className="hero-section">
@@ -12,12 +16,12 @@ export default function Home() {
             Kompleksowa obsługa księgowa z pasją i zaangażowaniem
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <a href="#contact" className="btn-primary">
+            <button onClick={() => onNavigate('contact')} className="btn-primary">
               Skontaktuj się z nami
-            </a>
-            <a href="#services" className="btn-secondary">
+            </button>
+            <button onClick={() => onNavigate('services')} className="btn-secondary">
               Zakres usług
-            </a>
+            </button>
           </div>
         </div>
       </section>
@@ -69,9 +73,9 @@ export default function Home() {
           <p className="text-xl text-blue-50 mb-8 max-w-2xl mx-auto">
             Skontaktuj się z nami już dziś i poznaj nasze możliwości
           </p>
-          <a href="#contact" className="btn-primary">
+          <button onClick={() => onNavigate('contact')} className="btn-primary">
             Napisz do nas
-          </a>
+          </button>
         </div>
       </section>
     </>
