@@ -7,7 +7,8 @@ interface HomeProps {
 export default function Home({ onNavigate }: HomeProps) {
   return (
     <>
-      <section className="bg-gradient-to-b from-blue-500 to-blue-700 py-20 text-center">
+      <section className="bg-gradient-to-b from-blue-500 to-blue-700 py-12 md:py-16 text-center">
+
         <div className="container mx-auto px-6">
           <img
             src={`${import.meta.env.BASE_URL}logo-biale.svg`}
