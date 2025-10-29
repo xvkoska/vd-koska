@@ -1,3 +1,4 @@
+
 import { TrendingUp, Shield, Zap, Briefcase } from 'lucide-react';
 import Testimonials from "./Testimonials";
 
@@ -65,6 +66,7 @@ export default function Home({ onNavigate }: HomeProps) {
       {/* Dlaczego my? */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-6">
+          <h2 className="text-4xl font-bold text-center text-blue-500 mb-16">
           <h2 className="text-4xl font-bold text-center text-gray-600 mb-16">
             Dlaczego my?
           </h2>
