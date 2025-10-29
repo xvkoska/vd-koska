@@ -7,32 +7,36 @@ interface HomeProps {
 export default function Home({ onNavigate }: HomeProps) {
   return (
     <>
-     <section className="hero-section">
-  <div className="container mx-auto px-6 py-24 text-center">
-    <img
-      src={`${import.meta.env.BASE_URL}logo-biale.svg`}
-      alt="VD Biuro Rachunkowe Wioletta Kóska"
-      className="mx-auto mb-12 h-28 w-auto md:h-36"
-      loading="eager"
-      decoding="async"
-    />
-    <h1 className="text-3xl md:text-4xl font-bold text-white mb-4 leading-snug">
-      Profesjonalne usługi księgowe dla Twojej firmy
-    </h1>
-    <p className="text-lg md:text-xl text-blue-50 mb-10 max-w-3xl mx-auto">
-      Kompleksowa obsługa księgowa z pasją i zaangażowaniem
-    </p>
-    <div className="flex flex-wrap gap-4 justify-center">
-      <button onClick={() => onNavigate('contact')} className="btn-primary">
-        Skontaktuj się z nami
-      </button>
-      <button onClick={() => onNavigate('services')} className="btn-secondary">
-        Zakres usług
-      </button>
-    </div>
-  </div>
-</section>
+      <section className="bg-gradient-to-b from-blue-500 to-blue-700 py-24 text-center">
+        <div className="container mx-auto px-6">
+          <img
+            src={`${import.meta.env.BASE_URL}logo-biale.svg`}
+            alt="VD Biuro Rachunkowe Wioletta Kóska"
+            className="mx-auto h-32 w-auto md:h-40"
+            loading="eager"
+            decoding="async"
+          />
+        </div>
+      </section>
 
+      <section className="bg-white text-center py-16">
+        <div className="container mx-auto px-6">
+          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 leading-snug">
+            Profesjonalne usługi księgowe dla Twojej firmy
+          </h1>
+          <p className="text-lg md:text-xl text-gray-600 mb-10 max-w-3xl mx-auto">
+            Kompleksowa obsługa księgowa z pasją i zaangażowaniem
+          </p>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <button onClick={() => onNavigate('contact')} className="btn-primary">
+              Skontaktuj się z nami
+            </button>
+            <button onClick={() => onNavigate('services')} className="btn-secondary">
+              Zakres usług
+            </button>
+          </div>
+        </div>
+      </section>
 
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-6">
