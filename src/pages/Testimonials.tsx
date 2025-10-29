@@ -9,15 +9,15 @@ type Testimonial = {
 };
 
 const DATA: Testimonial[] = [
-  { id: 1, name: "Mariusz Witosławski", when: "31 lipca 2025", rating: 5,
+  { id: 1, name: "Mariusz W.", when: "31 lipca 2025", rating: 5,
     text: "Jestem bardzo zadowolona ze współpracy z Panią Wiolettą Kóską. Przemiły kontakt, bardzo szybki. Zawsze dostępna w razie potrzeby. Sprawy rozwiązywane bezproblemowo. Serdecznie polecam i będę polecać innym." },
-  { id: 2, name: "Oliwia Lewandowska", when: "2 marca 2025", rating: 5,
+  { id: 2, name: "Oliwia L.", when: "2 marca 2025", rating: 5,
     text: "Profesjonalizm, rzetelność, dyspozycyjność i ogromna wiedza. Zawsze mogę liczyć na fachowe doradztwo, terminowe rozliczenia oraz pomoc w kwestiach podatkowych i finansowych. Dba o szczegóły, a jej zaangażowanie ułatwia prowadzenie firmy." },
   { id: 3, name: "Klient inFakt.pl", when: "11 lutego 2025", rating: 5,
     text: "Wiedza, kompetencje, dyspozycyjność. Zawsze szybka reakcja i odpowiedź na pytania oraz problemy." },
-  { id: 4, name: "Piotr Szczepański", when: "18 sierpnia 2025", rating: 5,
+  { id: 4, name: "Piotr S.", when: "18 sierpnia 2025", rating: 5,
     text: "Profesjonalna osoba, zawsze odbierająca telefon. Polecam." },
-  { id: 5, name: "Małgorzata Ciemięga", when: "18 sierpnia 2025", rating: 5,
+  { id: 5, name: "Małgorzata C.", when: "18 sierpnia 2025", rating: 5,
     text: "Bardzo miła i rzetelna obsługa. Indywidualne podejście Pani Księgowej." },
 ];
 
