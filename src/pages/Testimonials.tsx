@@ -89,35 +89,37 @@ export default function Testimonials() {
             </a>
           </div>
 
-          <div className="relative">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {[0, 1, 2].map((offset) => {
-                const item = DATA[(index + offset) % DATA.length];
-                return (
-                  <article
-                    key={item.id}
-                    className="rounded-2xl bg-white shadow-sm ring-1 ring-gray-200 p-6 md:p-8"
-                  >
-                    <div className="-mt-12 mb-2 flex justify-center">
-                      <div className="h-16 w-16 rounded-full bg-blue-600 text-white grid place-items-center text-xl font-semibold shadow-lg ring-4 ring-white">
-                        {item.name.replace(/[^A-ZĄĆĘŁŃÓŚŹŻ]/g, "").slice(0, 2) || "IN"}
-                      </div>
-                    </div>
+         <div className="overflow-hidden relative">
+  <div
+    className="flex transition-transform duration-500 ease-in-out"
+    style={{ transform: `translateX(-${index * 100}%)` }}
+  >
+    {DATA.map((item) => (
+      <article
+        key={item.id}
+        className="min-w-full md:min-w-1/3 rounded-2xl bg-white shadow-sm ring-1 ring-gray-200 p-6 md:p-8 mx-2"
+      >
+        <div className="-mt-12 mb-2 flex justify-center">
+          <div className="h-16 w-16 rounded-full bg-blue-600 text-white grid place-items-center text-xl font-semibold shadow-lg ring-4 ring-white">
+            {item.name.replace(/[^A-ZĄĆĘŁŃÓŚŹŻ]/g, "").slice(0, 2) || "IN"}
+          </div>
+        </div>
 
-                    <h3 className="text-center font-semibold text-gray-900">{item.name}</h3>
-                    <p className="text-center text-sm text-gray-500">{item.when}</p>
+        <h3 className="text-center font-semibold text-gray-900">{item.name}</h3>
+        <p className="text-center text-sm text-gray-500">{item.when}</p>
 
-                    <div className="mt-3">
-                      <Stars count={item.rating} />
-                    </div>
+        <div className="mt-3">
+          <Stars count={item.rating} />
+        </div>
 
-                    <p className="mt-4 text-center text-gray-700 leading-relaxed">{item.text}</p>
+        <p className="mt-4 text-center text-gray-700 leading-relaxed">{item.text}</p>
 
-                    <p className="mt-4 text-center text-xs text-gray-400">Źródło: inFakt.pl</p>
-                  </article>
-                );
-              })}
-            </div>
+        <p className="mt-4 text-center text-xs text-gray-400">Źródło: inFakt.pl</p>
+      </article>
+    ))}
+  </div>
+</div>
+
 
             <button
               onClick={prev}
