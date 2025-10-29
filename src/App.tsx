@@ -37,7 +37,7 @@ function App() {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between py-4">
             <div className="flex items-center">
-              <img src={`${import.meta.env.BASE_URL}logo.svg`} alt="VD Wioletta Kóska Biuro Rachunkowe" className="block h-10 w-auto md:h-12 shrink-0" loading="eager" decoding="async" />
+              
             </div>
 
             <nav className="hidden md:flex items-center gap-8">
