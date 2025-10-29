@@ -1,5 +1,4 @@
 import { TrendingUp, Shield, Zap, Briefcase } from 'lucide-react';
-
 import Testimonials from "./Testimonials";
 
 interface HomeProps {
@@ -9,8 +8,8 @@ interface HomeProps {
 export default function Home({ onNavigate }: HomeProps) {
   return (
     <>
+      {/* Górny pasek z logo */}
       <section className="bg-gradient-to-b from-blue-500 to-blue-700 py-12 md:py-16 text-center">
-
         <div className="container mx-auto px-6">
           <img
             src={`${import.meta.env.BASE_URL}logo-biale.svg`}
@@ -22,6 +21,7 @@ export default function Home({ onNavigate }: HomeProps) {
         </div>
       </section>
 
+      {/* HERO: nagłówek + CTA */}
       <section className="bg-gray-50 text-center py-16">
         <div className="container mx-auto px-6">
           <h1 className="text-3xl md:text-4xl font-bold text-blue-600 mb-4 leading-snug">
@@ -30,30 +30,45 @@ export default function Home({ onNavigate }: HomeProps) {
           <p className="text-lg md:text-xl text-gray-600 mb-10 max-w-3xl mx-auto">
             Kompleksowa obsługa księgowa z pasją i zaangażowaniem
           </p>
-        <div className="flex flex-wrap gap-4 justify-center">
-  <button
-    onClick={() => onNavigate('contact')}
-    className="bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg shadow hover:bg-blue-700 transform hover:scale-105 hover:shadow-lg transition-all duration-200"
-  >
-    Skontaktuj się z nami
-  </button>
 
-  <button
-    onClick={() => onNavigate('services')}
-    className="border-2 border-blue-600 text-blue-600 font-semibold px-6 py-3 rounded-lg hover:bg-blue-50 transform hover:scale-105 hover:shadow-md transition-all duration-200"
-  >
-    Zakres usług
-  </button>
-</div>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <button
+              onClick={() => onNavigate('contact')}
+              className="bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg shadow hover:bg-blue-700 transform hover:scale-105 hover:shadow-lg transition-all duration-200"
+            >
+              Skontaktuj się z nami
+            </button>
 
+            <button
+              onClick={() => onNavigate('services')}
+              className="border-2 border-blue-600 text-blue-600 font-semibold px-6 py-3 rounded-lg hover:bg-blue-50 transform hover:scale-105 hover:shadow-md transition-all duration-200"
+            >
+              Zakres usług
+            </button>
+          </div>
         </div>
       </section>
 
+      {/* SEPARATOR: delikatna fala oddzielająca sekcje */}
+      <div className="bg-white">
+        <svg
+          className="w-full h-10 text-gray-100"
+          viewBox="0 0 1440 80"
+          fill="currentColor"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+        >
+          <path d="M0,0 C360,80 1080,0 1440,80 L1440,0 L0,0 Z"></path>
+        </svg>
+      </div>
+
+      {/* Dlaczego my? */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-6">
           <h2 className="text-4xl font-bold text-center text-gray-700 mb-16">
             Dlaczego my?
           </h2>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="feature-card">
               <div className="feature-icon">
@@ -89,9 +104,11 @@ export default function Home({ onNavigate }: HomeProps) {
           </div>
         </div>
       </section>
-      
-<Testimonials />
-      
+
+      {/* Opinie */}
+      <Testimonials />
+
+      {/* CTA na dole */}
       <section className="cta-section">
         <div className="container mx-auto px-6 py-20 text-center">
           <h2 className="text-4xl font-bold text-white mb-6">Gotowy na współpracę?</h2>
