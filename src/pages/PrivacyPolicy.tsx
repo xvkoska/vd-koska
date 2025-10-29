@@ -5,9 +5,9 @@ export default function PrivacyPolicy() {
 
       <p className="mb-4">
         Administratorem danych osobowych jest <strong>VD Biuro Rachunkowe Wioletta Kóska</strong> z siedzibą w
-        Czechowicach-Dziedzicach (ul. 11 Listopada 34/a, 43-502 Czechowice-Dziedzice, NIP 5471028673).
-        Kontakt w sprawie danych osobowych: <a href="mailto:kontakt@vd-biuro.pl" className="text-blue-600 hover:underline">kontakt@vd-biuro.pl</a>,
-        +48 662 389 609.
+        Pisarzowicach (ul.Krakowska 1, 43-332 Pisarzowice, NIP 5471028673).
+        Kontakt w sprawie danych osobowych: <a href="mailto:vd.wioletta.koska@gmail.com" className="text-blue-600 hover:underline">vd.wioletta.koska@gmail.com</a>,
+        +48 662 068 515.
       </p>
 
       <p className="mb-4">
@@ -51,7 +51,7 @@ export default function PrivacyPolicy() {
 
       <p className="mb-4">
         W sprawach związanych z przetwarzaniem danych osobowych można kontaktować się z
-        administratorem pod adresem: <a href="mailto:kontakt@vd-biuro.pl" className="text-blue-600 hover:underline">kontakt@vd-biuro.pl</a>.
+        administratorem pod adresem: <a href="mailto:vd.wioletta.koska@gmail.com" className="text-blue-600 hover:underline">vd.wioletta.koska@gmail.com</a>.
       </p>
 
       <p className="text-sm text-gray-600 mt-8">
