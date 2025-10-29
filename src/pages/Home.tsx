@@ -1,5 +1,7 @@
 import { TrendingUp, Shield, Zap, Briefcase } from 'lucide-react';
 
+import Testimonials from "./Testimonials";
+
 interface HomeProps {
   onNavigate: (page: 'home' | 'about' | 'numbers' | 'services' | 'contact') => void;
 }
@@ -46,6 +48,7 @@ export default function Home({ onNavigate }: HomeProps) {
 
         </div>
       </section>
+<Testimonials />
 
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-6">
