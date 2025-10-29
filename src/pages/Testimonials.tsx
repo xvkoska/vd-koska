@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 type Testimonial = {
   id: number;
@@ -11,7 +11,7 @@ type Testimonial = {
 const DATA: Testimonial[] = [
   {
     id: 1,
-    name: "Mariusz W.",
+    name: "Mariusz Witosławski",
     when: "31 lipca 2025",
     rating: 5,
     text:
@@ -19,7 +19,7 @@ const DATA: Testimonial[] = [
   },
   {
     id: 2,
-    name: "Oliwia L.",
+    name: "Oliwia Lewandowska",
     when: "2 marca 2025",
     rating: 5,
     text:
@@ -35,33 +35,21 @@ const DATA: Testimonial[] = [
   },
   {
     id: 4,
-    name: "Piotr S.",
+    name: "Piotr Szczepański",
     when: "18 sierpnia 2025",
     rating: 5,
-    text: "Profesjonalna osoba, zawsze odbierająca telefon. Polecam.",
+    text:
+      "Profesjonalna osoba, zawsze odbierająca telefon. Polecam.",
   },
   {
     id: 5,
-    name: "Małgorzata C.",
+    name: "Małgorzata Ciemięga",
     when: "18 sierpnia 2025",
     rating: 5,
     text:
       "Bardzo miła i rzetelna obsługa. Indywidualne podejście Pani Księgowej.",
   },
-  {
-    id: 6,
-    name: "Klient inFakt.pl",
-    when: "28 stycznia 2025",
-    rating: 5,
-    text: "Bardzo dobry kontakt, księgowa jest rzetelna a przy tym elastyczna.",
-  },
 ];
-
-function chunk<T>(arr: T[], size: number): T[][] {
-  return Array.from({ length: Math.ceil(arr.length / size) }, (_, i) =>
-    arr.slice(i * size, i * size + size)
-  );
-}
 
 function Stars({ count }: { count: number }) {
   return (
@@ -73,7 +61,7 @@ function Stars({ count }: { count: number }) {
           className={`h-5 w-5 ${i < count ? "text-yellow-400" : "text-gray-300"}`}
           fill="currentColor"
         >
-          <path d="M10 15.27 16.18 19l-1.64-7.03L20 7.24l-7.19-.61L10 0 7.19 6.63 0 7.24l5.46 4.73L3.82 19 10 15.27z" />
+          <path d="M10 15.27 16.18 19l-1.64-7.03L20 7.24l-7.19-.61L10 0 7.19 6.63 0 7.24l5.46 4.73L3.82 19 10 15.27z"/>
         </svg>
       ))}
     </div>
@@ -81,23 +69,16 @@ function Stars({ count }: { count: number }) {
 }
 
 export default function Testimonials() {
-  const slides = chunk(DATA, 3);
-  const [slide, setSlide] = useState(0);
-
-  const prev = () => setSlide((s) => (s === 0 ? slides.length - 1 : s - 1));
-  const next = () => setSlide((s) => (s === slides.length - 1 ? 0 : s + 1));
-
-  useEffect(() => {
-    const id = setInterval(next, 6000);
-    return () => clearInterval(id);
-  }, [slide]);
+  const [index, setIndex] = useState(0);
+  const prev = () => setIndex((i) => (i === 0 ? DATA.length - 1 : i - 1));
+  const next = () => setIndex((i) => (i === DATA.length - 1 ? 0 : i + 1));
 
   return (
-    <section className="py-28 md:py-32 overflow-visible">
-      <div className="container mx-auto px-6 overflow-visible">
-        <div className="rounded-3xl bg-gray-50 p-10 md:p-16 pt-20 md:pt-24 overflow-visible">
-          <div className="flex items-center justify-between mb-8">
-            <h2 className="text-3xl font-bold text-gray-900">Opinie klientów</h2>
+    <section className="py-16">
+      <div className="container mx-auto px-6">
+        <div className="rounded-2xl bg-gray-50 p-6 md:p-10">
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900">Opinie klientów</h2>
             <a
               href="https://www.infakt.pl/ksiegowi/wioletta-koska"
               target="_blank"
@@ -108,78 +89,60 @@ export default function Testimonials() {
             </a>
           </div>
 
-          <div className="relative overflow-visible mt-10 md:mt-12 pb-16 md:pb-20 min-h-[520px] md:min-h-[560px]">
-
-            <div className="overflow-x-hidden overflow-y-visible px-2 md:px-4">
-              <div
-                className="flex transition-transform duration-700 ease-in-out -mx-3 md:-mx-4"
-                style={{ transform: `translateX(-${slide * 100}%)` }}
-              >
-                {slides.map((group, i) => (
-                  <div key={i} className="w-full shrink-0 px-3 md:px-4 overflow-visible">
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 overflow-visible">
-                      {group.map((item) => (
-                        <article
-                          key={item.id}
-                          className="relative overflow-visible rounded-2xl bg-white shadow-[0_6px_30px_rgba(0,0,0,0.08)] ring-1 ring-gray-200 p-8 pt-16"
-                        >
-                          <div className="absolute -top-10 left-1/2 -translate-x-1/2 z-10 overflow-visible">
-                            <div className="h-20 w-20 rounded-full bg-blue-600 text-white grid place-items-center text-2xl font-semibold shadow-xl ring-4 ring-white">
-                              {item.name
-                                .replace(/[^A-ZĄĆĘŁŃÓŚŹŻ]/g, "")
-                                .slice(0, 2) || "IN"}
-                            </div>
-                          </div>
-
-                          <h3 className="text-center font-semibold text-gray-900 mt-2">
-                            {item.name}
-                          </h3>
-                          <p className="text-center text-sm text-gray-500">
-                            {item.when}
-                          </p>
-
-                          <div className="mt-3">
-                            <Stars count={item.rating} />
-                          </div>
-
-                          <p className="mt-4 text-center text-gray-700 leading-relaxed">
-                            {item.text}
-                          </p>
-                          <p className="mt-4 text-center text-xs text-gray-400">
-                            Źródło: inFakt.pl
-                          </p>
-                        </article>
-                      ))}
+          <div className="relative">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {[0, 1, 2].map((offset) => {
+                const item = DATA[(index + offset) % DATA.length];
+                return (
+                  <article
+                    key={item.id}
+                    className="rounded-2xl bg-white shadow-sm ring-1 ring-gray-200 p-6 md:p-8"
+                  >
+                    <div className="-mt-12 mb-2 flex justify-center">
+                      <div className="h-16 w-16 rounded-full bg-blue-600 text-white grid place-items-center text-xl font-semibold shadow-lg ring-4 ring-white">
+                        {item.name.replace(/[^A-ZĄĆĘŁŃÓŚŹŻ]/g, "").slice(0, 2) || "IN"}
+                      </div>
                     </div>
-                  </div>
-                ))}
-              </div>
+
+                    <h3 className="text-center font-semibold text-gray-900">{item.name}</h3>
+                    <p className="text-center text-sm text-gray-500">{item.when}</p>
+
+                    <div className="mt-3">
+                      <Stars count={item.rating} />
+                    </div>
+
+                    <p className="mt-4 text-center text-gray-700 leading-relaxed">{item.text}</p>
+
+                    <p className="mt-4 text-center text-xs text-gray-400">Źródło: inFakt.pl</p>
+                  </article>
+                );
+              })}
             </div>
 
             <button
               onClick={prev}
-              aria-label="Poprzednie opinie"
-              className="hidden md:flex absolute -left-4 top-1/2 -translate-y-1/2 h-11 w-11 items-center justify-center rounded-full bg-white shadow-md ring-1 ring-gray-200 hover:bg-gray-50"
+              aria-label="Poprzednia opinia"
+              className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 h-10 w-10 items-center justify-center rounded-full bg-white shadow ring-1 ring-gray-200 hover:bg-gray-50"
             >
               ‹
             </button>
             <button
               onClick={next}
-              aria-label="Następne opinie"
-              className="hidden md:flex absolute -right-4 top-1/2 -translate-y-1/2 h-11 w-11 items-center justify-center rounded-full bg-white shadow-md ring-1 ring-gray-200 hover:bg-gray-50"
+              aria-label="Następna opinia"
+              className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 h-10 w-10 items-center justify-center rounded-full bg-white shadow ring-1 ring-gray-200 hover:bg-gray-50"
             >
               ›
             </button>
           </div>
 
-          <div className="mt-8 flex justify-center gap-2">
-            {slides.map((_, i) => (
+          <div className="mt-6 flex justify-center gap-2">
+            {DATA.map((_, i) => (
               <button
                 key={i}
-                onClick={() => setSlide(i)}
+                onClick={() => setIndex(i)}
                 aria-label={`Slajd ${i + 1}`}
                 className={`h-2.5 w-2.5 rounded-full transition ${
-                  i === slide ? "bg-blue-600" : "bg-gray-300 hover:bg-gray-400"
+                  i === index ? "bg-blue-600" : "bg-gray-300 hover:bg-gray-400"
                 }`}
               />
             ))}
