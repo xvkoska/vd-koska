@@ -7,19 +7,19 @@ interface HomeProps {
 export default function Home({ onNavigate }: HomeProps) {
   return (
     <>
-      <section className="bg-gradient-to-b from-blue-500 to-blue-700 py-24 text-center">
+      <section className="bg-gradient-to-b from-blue-500 to-blue-700 py-20 text-center">
         <div className="container mx-auto px-6">
           <img
             src={`${import.meta.env.BASE_URL}logo-biale.svg`}
             alt="VD Biuro Rachunkowe Wioletta Kóska"
-            className="mx-auto h-32 w-auto md:h-40"
+            className="mx-auto h-40 w-auto md:h-48"
             loading="eager"
             decoding="async"
           />
         </div>
       </section>
 
-      <section className="bg-white text-center py-16">
+      <section className="bg-gray-50 text-center py-16">
         <div className="container mx-auto px-6">
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 leading-snug">
             Profesjonalne usługi księgowe dla Twojej firmy
@@ -28,10 +28,16 @@ export default function Home({ onNavigate }: HomeProps) {
             Kompleksowa obsługa księgowa z pasją i zaangażowaniem
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <button onClick={() => onNavigate('contact')} className="btn-primary">
+            <button
+              onClick={() => onNavigate('contact')}
+              className="bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg shadow hover:bg-blue-700 transition"
+            >
               Skontaktuj się z nami
             </button>
-            <button onClick={() => onNavigate('services')} className="btn-secondary">
+            <button
+              onClick={() => onNavigate('services')}
+              className="border-2 border-blue-600 text-blue-600 font-semibold px-6 py-3 rounded-lg hover:bg-blue-50 transition"
+            >
               Zakres usług
             </button>
           </div>
