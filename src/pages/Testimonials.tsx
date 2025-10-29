@@ -1,3 +1,6 @@
+Okej — poniżej masz **cały gotowy kod** `Testimonials.tsx` (z płynnym przesuwaniem i poprawionymi marginesami, bez żadnych komentarzy):
+
+```tsx
 import { useState } from "react";
 
 type Testimonial = {
@@ -21,7 +24,6 @@ const DATA: Testimonial[] = [
     text: "Bardzo miła i rzetelna obsługa. Indywidualne podejście Pani Księgowej." },
 ];
 
-// pomocnicze: podział na „slajdy” po 3 opinie
 function chunk<T>(arr: T[], size: number): T[][] {
   return Array.from({ length: Math.ceil(arr.length / size) }, (_, i) =>
     arr.slice(i * size, i * size + size)
@@ -46,7 +48,7 @@ function Stars({ count }: { count: number }) {
 }
 
 export default function Testimonials() {
-  const slides = chunk(DATA, 3);                 // 3 karty na slajd
+  const slides = chunk(DATA, 3);
   const [slide, setSlide] = useState(0);
 
   const prev = () => setSlide((s) => (s === 0 ? slides.length - 1 : s - 1));
@@ -68,15 +70,14 @@ export default function Testimonials() {
             </a>
           </div>
 
-          {/* SLIDER */}
           <div className="relative">
-            <div className="overflow-hidden">
+            <div className="overflow-x-hidden overflow-y-visible px-3 md:px-4">
               <div
-                className="flex transition-transform duration-500 ease-in-out"
+                className="flex transition-transform duration-500 ease-in-out -mx-3 md:-mx-4"
                 style={{ transform: `translateX(-${slide * 100}%)` }}
               >
                 {slides.map((group, i) => (
-                  <div key={i} className="w-full shrink-0">
+                  <div key={i} className="w-full shrink-0 px-3 md:px-4">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                       {group.map((item) => (
                         <article
@@ -88,16 +89,12 @@ export default function Testimonials() {
                               {item.name.replace(/[^A-ZĄĆĘŁŃÓŚŹŻ]/g, "").slice(0, 2) || "IN"}
                             </div>
                           </div>
-
                           <h3 className="text-center font-semibold text-gray-900">{item.name}</h3>
                           <p className="text-center text-sm text-gray-500">{item.when}</p>
-
                           <div className="mt-3">
                             <Stars count={item.rating} />
                           </div>
-
                           <p className="mt-4 text-center text-gray-700 leading-relaxed">{item.text}</p>
-
                           <p className="mt-4 text-center text-xs text-gray-400">Źródło: inFakt.pl</p>
                         </article>
                       ))}
@@ -107,7 +104,6 @@ export default function Testimonials() {
               </div>
             </div>
 
-            {/* strzałki */}
             <button
               onClick={prev}
               aria-label="Poprzednia opinia"
@@ -124,7 +120,6 @@ export default function Testimonials() {
             </button>
           </div>
 
-          {/* kropki */}
           <div className="mt-6 flex justify-center gap-2">
             {slides.map((_, i) => (
               <button
@@ -140,3 +135,4 @@ export default function Testimonials() {
     </section>
   );
 }
+```
