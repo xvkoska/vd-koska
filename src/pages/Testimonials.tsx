@@ -1,0 +1,154 @@
+import { useState } from "react";
+
+type Testimonial = {
+  id: number;
+  name: string;
+  when: string;
+  rating: 1 | 2 | 3 | 4 | 5;
+  text: string;
+};
+
+const DATA: Testimonial[] = [
+  {
+    id: 1,
+    name: "Mariusz Witosławski",
+    when: "31 lipca 2025",
+    rating: 5,
+    text:
+      "Jestem bardzo zadowolona ze współpracy z Panią Wiolettą Kóską. Przemiły kontakt, bardzo szybki. Zawsze dostępna w razie potrzeby. Sprawy rozwiązywane bezproblemowo. Serdecznie polecam i będę polecać innym.",
+  },
+  {
+    id: 2,
+    name: "Oliwia Lewandowska",
+    when: "2 marca 2025",
+    rating: 5,
+    text:
+      "Profesjonalizm, rzetelność, dyspozycyjność i ogromna wiedza. Zawsze mogę liczyć na fachowe doradztwo, terminowe rozliczenia oraz pomoc w kwestiach podatkowych i finansowych. Dba o szczegóły, a jej zaangażowanie ułatwia prowadzenie firmy.",
+  },
+  {
+    id: 3,
+    name: "Klient inFakt.pl",
+    when: "11 lutego 2025",
+    rating: 5,
+    text:
+      "Wiedza, kompetencje, dyspozycyjność. Zawsze szybka reakcja i odpowiedź na pytania oraz problemy.",
+  },
+  {
+    id: 4,
+    name: "Piotr Szczepański",
+    when: "18 sierpnia 2025",
+    rating: 5,
+    text:
+      "Profesjonalna osoba, zawsze odbierająca telefon. Polecam.",
+  },
+  {
+    id: 5,
+    name: "Małgorzata Ciemięga",
+    when: "18 sierpnia 2025",
+    rating: 5,
+    text:
+      "Bardzo miła i rzetelna obsługa. Indywidualne podejście Pani Księgowej.",
+  },
+];
+
+function Stars({ count }: { count: number }) {
+  return (
+    <div className="flex gap-1 justify-center">
+      {Array.from({ length: 5 }).map((_, i) => (
+        <svg
+          key={i}
+          viewBox="0 0 20 20"
+          className={`h-5 w-5 ${i < count ? "text-yellow-400" : "text-gray-300"}`}
+          fill="currentColor"
+        >
+          <path d="M10 15.27 16.18 19l-1.64-7.03L20 7.24l-7.19-.61L10 0 7.19 6.63 0 7.24l5.46 4.73L3.82 19 10 15.27z"/>
+        </svg>
+      ))}
+    </div>
+  );
+}
+
+export default function Testimonials() {
+  const [index, setIndex] = useState(0);
+  const prev = () => setIndex((i) => (i === 0 ? DATA.length - 1 : i - 1));
+  const next = () => setIndex((i) => (i === DATA.length - 1 ? 0 : i + 1));
+
+  return (
+    <section className="py-16">
+      <div className="container mx-auto px-6">
+        <div className="rounded-2xl bg-gray-50 p-6 md:p-10">
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900">Opinie klientów</h2>
+            <a
+              href="https://www.infakt.pl/ksiegowi/wioletta-koska"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:text-blue-700 underline"
+            >
+              Zobacz wszystkie na inFakt.pl
+            </a>
+          </div>
+
+          <div className="relative">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {[0, 1, 2].map((offset) => {
+                const item = DATA[(index + offset) % DATA.length];
+                return (
+                  <article
+                    key={item.id}
+                    className="rounded-2xl bg-white shadow-sm ring-1 ring-gray-200 p-6 md:p-8"
+                  >
+                    <div className="-mt-12 mb-2 flex justify-center">
+                      <div className="h-16 w-16 rounded-full bg-blue-600 text-white grid place-items-center text-xl font-semibold shadow-lg ring-4 ring-white">
+                        {item.name.replace(/[^A-ZĄĆĘŁŃÓŚŹŻ]/g, "").slice(0, 2) || "IN"}
+                      </div>
+                    </div>
+
+                    <h3 className="text-center font-semibold text-gray-900">{item.name}</h3>
+                    <p className="text-center text-sm text-gray-500">{item.when}</p>
+
+                    <div className="mt-3">
+                      <Stars count={item.rating} />
+                    </div>
+
+                    <p className="mt-4 text-center text-gray-700 leading-relaxed">{item.text}</p>
+
+                    <p className="mt-4 text-center text-xs text-gray-400">Źródło: inFakt.pl</p>
+                  </article>
+                );
+              })}
+            </div>
+
+            <button
+              onClick={prev}
+              aria-label="Poprzednia opinia"
+              className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 h-10 w-10 items-center justify-center rounded-full bg-white shadow ring-1 ring-gray-200 hover:bg-gray-50"
+            >
+              ‹
+            </button>
+            <button
+              onClick={next}
+              aria-label="Następna opinia"
+              className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 h-10 w-10 items-center justify-center rounded-full bg-white shadow ring-1 ring-gray-200 hover:bg-gray-50"
+            >
+              ›
+            </button>
+          </div>
+
+          <div className="mt-6 flex justify-center gap-2">
+            {DATA.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setIndex(i)}
+                aria-label={`Slajd ${i + 1}`}
+                className={`h-2.5 w-2.5 rounded-full transition ${
+                  i === index ? "bg-blue-600" : "bg-gray-300 hover:bg-gray-400"
+                }`}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
