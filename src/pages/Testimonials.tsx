@@ -95,7 +95,7 @@ export default function Testimonials() {
   return (
     <section className="py-16 overflow-visible">
       <div className="container mx-auto px-6 overflow-visible">
-        <div className="rounded-3xl bg-gray-50 p-6 md:p-10 overflow-visible">
+        <div className="rounded-3xl bg-gray-50 p-6 md:p-10 pt-12 md:pt-14 overflow-visible">
           <div className="flex items-center justify-between mb-8">
             <h2 className="text-3xl font-bold text-gray-900">Opinie klientów</h2>
             <a
@@ -108,7 +108,7 @@ export default function Testimonials() {
             </a>
           </div>
 
-          <div className="relative overflow-visible">
+          <div className="relative overflow-visible mt-6 md:mt-8">
             <div className="overflow-x-hidden overflow-y-visible px-2 md:px-4">
               <div
                 className="flex transition-transform duration-700 ease-in-out -mx-3 md:-mx-4"
@@ -122,7 +122,7 @@ export default function Testimonials() {
                           key={item.id}
                           className="relative overflow-visible rounded-2xl bg-white shadow-[0_6px_30px_rgba(0,0,0,0.08)] ring-1 ring-gray-200 p-8 pt-16"
                         >
-                          <div className="absolute -top-12 left-1/2 -translate-x-1/2 z-10 overflow-visible">
+                          <div className="absolute -top-10 left-1/2 -translate-x-1/2 z-10 overflow-visible">
                             <div className="h-20 w-20 rounded-full bg-blue-600 text-white grid place-items-center text-2xl font-semibold shadow-xl ring-4 ring-white">
                               {item.name
                                 .replace(/[^A-ZĄĆĘŁŃÓŚŹŻ]/g, "")
