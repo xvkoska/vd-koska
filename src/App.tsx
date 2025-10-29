@@ -91,9 +91,9 @@ function App() {
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
             <div>
-              <h3 className="text-xl font-bold text-blue-400 mb-4">VD Biuro Rachunkowe</h3>
+              <h3 className="text-xl font-bold text-blue-400 mb-4">Adres</h3>
               <address className="not-italic">
-                <p className="text-gray-300 font-semibold">Wioletta Kóska</p>
+                <p className="text-gray-300 font-semibold">VD Wioletta Kóska</p>
                 <p className="text-gray-300 text-sm mt-2">ul. Krakowska 1, 43-332 Pisarzowice</p>
                 <p className="text-gray-300 text-sm">NIP: 5471028673</p>
               </address>
