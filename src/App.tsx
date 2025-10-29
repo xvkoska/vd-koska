@@ -34,10 +34,10 @@ function App() {
   return (
     <div className="min-h-screen bg-white">
       <header className="sticky top-0 z-50 bg-white shadow-md">
-        <div className="container mx-auto px-6">
-          <div className="flex items-center justify-between py-6">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-between py-4">
             <div className="flex items-center">
-              <img src={`${import.meta.env.BASE_URL}vd-logo.png`} alt="VD Wioletta Kóska Biuro Rachunkowe" className="h-16 w-auto" />
+              <img src={`${import.meta.env.BASE_URL}logo.svg`} alt="VD Wioletta Kóska Biuro Rachunkowe" className="block h-10 w-auto md:h-12 shrink-0" loading="eager" decoding="async" />
             </div>
 
             <nav className="hidden md:flex items-center gap-8">
