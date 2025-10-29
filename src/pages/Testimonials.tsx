@@ -70,7 +70,7 @@ export default function Testimonials() {
       <div className="container mx-auto px-6">
         <div className="rounded-2xl bg-gray-50 p-6 md:p-10 overflow-hidden">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900">Opinie klientów</h2>
+            <h3 className="text-2xl md:text-3xl font-bold text-gray-600">Opinie klientów</h3>
             <a
               href="https://www.infakt.pl/ksiegowi/wioletta-koska"
               target="_blank" rel="noopener noreferrer"
