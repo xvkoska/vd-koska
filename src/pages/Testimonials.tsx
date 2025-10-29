@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type Testimonial = {
   id: number;
@@ -61,7 +61,7 @@ function Stars({ count }: { count: number }) {
           className={`h-5 w-5 ${i < count ? "text-yellow-400" : "text-gray-300"}`}
           fill="currentColor"
         >
-          <path d="M10 15.27 16.18 19l-1.64-7.03L20 7.24l-7.19-.61L10 0 7.19 6.63 0 7.24l5.46 4.73L3.82 19 10 15.27z"/>
+          <path d="M10 15.27 16.18 19l-1.64-7.03L20 7.24l-7.19-.61L10 0 7.19 6.63 0 7.24l5.46 4.73L3.82 19 10 15.27z" />
         </svg>
       ))}
     </div>
@@ -70,8 +70,40 @@ function Stars({ count }: { count: number }) {
 
 export default function Testimonials() {
   const [index, setIndex] = useState(0);
-  const prev = () => setIndex((i) => (i === 0 ? DATA.length - 1 : i - 1));
-  const next = () => setIndex((i) => (i === DATA.length - 1 ? 0 : i + 1));
+  const [fading, setFading] = useState(false);
+  const intervalRef = useRef<number | null>(null);
+
+  const safeSetIndex = (newIndex: number) => {
+    setFading(true);
+    // po krótkim wygaszeniu wstawiamy nowy indeks i fade-in
+    window.setTimeout(() => {
+      setIndex(newIndex);
+      setFading(false);
+    }, 200);
+  };
+
+  const prev = () =>
+    safeSetIndex((index === 0 ? DATA.length - 1 : index - 1));
+
+  const next = () =>
+    safeSetIndex((index === DATA.length - 1 ? 0 : index + 1));
+
+  // Autoplay co 6s (zapętlone)
+  useEffect(() => {
+    // czyścimy poprzedni interwał, żeby nie dublować po ręcznych klikach
+    if (intervalRef.current) {
+      window.clearInterval(intervalRef.current);
+    }
+    intervalRef.current = window.setInterval(() => {
+      next();
+    }, 6000);
+
+    return () => {
+      if (intervalRef.current) window.clearInterval(intervalRef.current);
+    };
+    // restartujemy licznik po każdej zmianie index (także kliknięciach),
+    // żeby użytkownik miał czas przeczytać
+  }, [index]);
 
   return (
     <section className="py-16">
@@ -90,7 +122,11 @@ export default function Testimonials() {
           </div>
 
           <div className="relative">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div
+              className={`grid grid-cols-1 md:grid-cols-3 gap-6 transition-opacity duration-700 ease-in-out ${
+                fading ? "opacity-0" : "opacity-100"
+              }`}
+            >
               {[0, 1, 2].map((offset) => {
                 const item = DATA[(index + offset) % DATA.length];
                 return (
@@ -99,7 +135,7 @@ export default function Testimonials() {
                     className="rounded-2xl bg-white shadow-sm ring-1 ring-gray-200 p-6 md:p-8"
                   >
                     <div className="-mt-12 mb-2 flex justify-center">
-                      <div className="h-16 w-16 rounded-full bg-blue-600 text-white grid place-items-center text-xl font-semibold shadow-lg ring-4 ring-white">
+                      <div className="h-16 w-16 rounded-full bg-blue-600 text-white grid place-items-center text-xl font-semibold shadow-lg ring-4 ring-white overflow-hidden">
                         {item.name.replace(/[^A-ZĄĆĘŁŃÓŚŹŻ]/g, "").slice(0, 2) || "IN"}
                       </div>
                     </div>
@@ -139,7 +175,7 @@ export default function Testimonials() {
             {DATA.map((_, i) => (
               <button
                 key={i}
-                onClick={() => setIndex(i)}
+                onClick={() => safeSetIndex(i)}
                 aria-label={`Slajd ${i + 1}`}
                 className={`h-2.5 w-2.5 rounded-full transition ${
                   i === index ? "bg-blue-600" : "bg-gray-300 hover:bg-gray-400"
