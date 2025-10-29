@@ -21,7 +21,7 @@ export default function Home({ onNavigate }: HomeProps) {
 
       <section className="bg-gray-50 text-center py-16">
         <div className="container mx-auto px-6">
-          <h1 className="text-3xl md:text-4xl font-bold text-blue-800 mb-4 leading-snug">
+          <h1 className="text-3xl md:text-4xl font-bold text-blue-700 mb-4 leading-snug">
             Profesjonalne usługi księgowe dla Twojej firmy
           </h1>
           <p className="text-lg md:text-xl text-gray-600 mb-10 max-w-3xl mx-auto">
