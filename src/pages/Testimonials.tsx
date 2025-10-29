@@ -109,7 +109,8 @@ export default function Testimonials() {
           </div>
 
           <div className="relative">
-            <div className="overflow-visible px-3 md:px-4">
+            <div className="overflow-x-hidden overflow-y-visible px-3 md:px-4">
+
               <div
                 className="flex transition-transform duration-700 ease-in-out -mx-3 md:-mx-4"
                 style={{ transform: `translateX(-${slide * 100}%)` }}
