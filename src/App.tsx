@@ -76,15 +76,7 @@ function App() {
               >
                 Kontakt
               </button>
-              <a
-                href="https://www.linkedin.com/in/wioletta-k%C3%B3ska-b69515390/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-600 hover:text-blue-700 transition-colors"
-                aria-label="LinkedIn"
-              >
-                <Linkedin size={24} />
-              </a>
+              
             </nav>
 
             <button
@@ -138,14 +130,7 @@ function App() {
               >
                 Kontakt
               </button>
-              <a
-                href="https://www.linkedin.com/in/wioletta-k%C3%B3ska-b69515390/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block px-4 py-2 text-blue-600 hover:bg-gray-50 rounded-lg transition-colors"
-              >
-                LinkedIn
-              </a>
+             
             </nav>
           )}
         </div>
@@ -187,14 +172,7 @@ function App() {
                 >
                   Kontakt
                 </button>
-                <a
-                  href="https://www.linkedin.com/in/wioletta-k%C3%B3ska-b69515390/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-300 text-sm hover:text-blue-300 hover:underline transition-colors"
-                >
-                  LinkedIn
-                </a>
+              
               </div>
             </div>
           </div>
