@@ -84,7 +84,10 @@ function App() {
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Menu"
             >
-              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              <span className="text-2xl font-bold">
+  {mobileMenuOpen ? '✕' : '☰'}
+</span>
+
             </button>
           </div>
 
