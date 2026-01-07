@@ -71,13 +71,7 @@ export default function Testimonials() {
         <div className="rounded-2xl bg-gray-50 p-6 md:p-10 overflow-hidden">
           <div className="flex items-center justify-between mb-6">
             <h3 className="text-2xl md:text-3xl font-bold text-gray-600">Opinie klientów</h3>
-            <a
-              href="https://www.infakt.pl/ksiegowi/wioletta-koska"
-              target="_blank" rel="noopener noreferrer"
-              className="text-blue-600 hover:text-blue-700 underline"
-            >
-              Zobacz wszystkie na inFakt.pl
-            </a>
+            
           </div>
 
           {/* TRACK = pełna szerokość, przesuwamy całe strony */}
@@ -101,7 +95,7 @@ export default function Testimonials() {
                         <p className="text-center text-sm text-gray-500">{item.when}</p>
                         <div className="mt-3"><Stars count={item.rating} /></div>
                         <p className="mt-4 text-center text-gray-700 leading-relaxed">{item.text}</p>
-                        <p className="mt-4 text-center text-xs text-gray-400">Źródło: inFakt.pl</p>
+                      
                       </article>
                     ))}
                   </div>
