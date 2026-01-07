@@ -101,10 +101,13 @@ export default function Contact({ onNavigate }: ContactProps) {
             <div>
               <div className="bg-white rounded-2xl shadow-lg p-8">
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">Wyślij wiadomość</h2>
-                <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" className="space-y-6">
-                  <input type="hidden" name="form-name" value="contact" />
-                  <input name="bot-field" className="hidden" />
-
+                <form
+                  action="https://formspree.io/f/mbdlnybw"
+                  method="POST"
+                  className="space-y-6"
+                >
+                
+                  <input type="hidden" name="_replyto" value="email" />
                   <div>
                     <label htmlFor="name" className="block text-gray-700 font-semibold mb-2">
                       Imię i nazwisko
