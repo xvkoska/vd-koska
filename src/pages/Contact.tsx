@@ -55,7 +55,10 @@ export default function Contact({ onNavigate }: ContactProps) {
                         Godziny otwarcia
                       </h3>
                       <p className="text-gray-700">
-                        Poniedziałek – Piątek: 8:00 – 17:00
+                        Poniedziałek – Czwartek: 8:00 – 17:00
+                      </p>
+                       <p className="text-gray-700">
+                        Piątek: 8:00 – 16:00
                       </p>
                       <p className="text-gray-700">
                         Sobota – Niedziela: Nieczynne
@@ -75,7 +78,7 @@ export default function Contact({ onNavigate }: ContactProps) {
 
                 {state.succeeded ? (
                   <p className="text-green-600 font-semibold text-lg">
-                    ✅ Wiadomość została wysłana. Dziękujemy!
+                    Wiadomość została wysłana. Dziękujemy!
                   </p>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-6">
