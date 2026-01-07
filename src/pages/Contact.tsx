@@ -23,19 +23,7 @@ export default function Contact({ onNavigate }: ContactProps) {
 
                
 
-                <div className="contact-info-card">
-                  <div className="flex items-start gap-4">
-                    <div className="mt-1">
-                      <Phone size={28} className="text-blue-600" />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-2">Telefon</h3>
-                      <a href="tel:+48123456789" className="text-blue-600 hover:text-blue-700 text-lg">
-                        +48 662 062 515
-                      </a>
-                    </div>
-                  </div>
-                </div>
+          
 
                 <div className="contact-info-card">
                   <div className="flex items-start gap-4">
