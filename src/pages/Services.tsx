@@ -17,7 +17,7 @@ export default function Services() {
               <div className="flex justify-center mb-6">
                 <BookOpen size={56} className="text-blue-600" />
               </div>
-              <h3 className="text-2xl font-bold text-blue-600 mb-4">Księgowość pełna</h3>
+              <h3 className="text-2xl font-bold text-blue-600 mb-4">Pełna księgowość</h3>
               <p className="text-gray-600 mb-6">
                 Kompleksowa obsługa księgowa firm prowadzących księgi rachunkowe
               </p>
