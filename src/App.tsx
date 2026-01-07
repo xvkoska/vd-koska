@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Linkedin } from 'lucide-react';
+import { Linkedin, Menu, X } from 'lucide-react';
 import Home from './pages/Home';
 import About from './pages/About';
 import Numbers from './pages/Numbers';
@@ -11,6 +11,12 @@ type Page = 'home' | 'about' | 'numbers' | 'services' | 'contact' | 'privacy-pol
 
 function App() {
   const [currentPage, setCurrentPage] = useState<Page>('home');
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const handleNavClick = (page: Page) => {
+    setCurrentPage(page);
+    setMobileMenuOpen(false);
+  };
 
   const renderPage = () => {
     switch (currentPage) {
@@ -34,39 +40,39 @@ function App() {
   return (
     <div className="min-h-screen bg-white">
       <header className="sticky top-0 z-50 bg-white shadow-md">
-        <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between py-4">
-            <div className="flex items-center">
-              
+        <div className="mx-auto px-4 md:px-6">
+          <div className="flex items-center justify-between py-3 md:py-4">
+            <div className="flex items-center flex-shrink-0">
+              <img src={`${import.meta.env.BASE_URL}vd-logo.png`} alt="VD Biuro Rachunkowe" className="h-12 md:h-16 w-auto" />
             </div>
 
-            <nav className="hidden md:flex items-center gap-8">
+            <nav className="hidden md:flex items-center gap-6 lg:gap-8">
               <button
-                onClick={() => setCurrentPage('home')}
+                onClick={() => handleNavClick('home')}
                 className={`nav-link ${currentPage === 'home' ? 'active' : ''}`}
               >
                 Strona główna
               </button>
               <button
-                onClick={() => setCurrentPage('about')}
+                onClick={() => handleNavClick('about')}
                 className={`nav-link ${currentPage === 'about' ? 'active' : ''}`}
               >
                 O nas
               </button>
               <button
-                onClick={() => setCurrentPage('numbers')}
+                onClick={() => handleNavClick('numbers')}
                 className={`nav-link ${currentPage === 'numbers' ? 'active' : ''}`}
               >
                 Liczby
               </button>
               <button
-                onClick={() => setCurrentPage('services')}
+                onClick={() => handleNavClick('services')}
                 className={`nav-link ${currentPage === 'services' ? 'active' : ''}`}
               >
                 Zakres usług
               </button>
               <button
-                onClick={() => setCurrentPage('contact')}
+                onClick={() => handleNavClick('contact')}
                 className={`nav-link ${currentPage === 'contact' ? 'active' : ''}`}
               >
                 Kontakt
@@ -81,40 +87,104 @@ function App() {
                 <Linkedin size={24} />
               </a>
             </nav>
+
+            <button
+              className="md:hidden p-2 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Menu"
+            >
+              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
           </div>
+
+          {mobileMenuOpen && (
+            <nav className="md:hidden pb-4 space-y-2 border-t border-gray-200">
+              <button
+                onClick={() => handleNavClick('home')}
+                className={`block w-full text-left px-4 py-2 rounded-lg transition-colors ${
+                  currentPage === 'home' ? 'bg-blue-50 text-blue-600 font-semibold' : 'text-gray-700 hover:bg-gray-50'
+                }`}
+              >
+                Strona główna
+              </button>
+              <button
+                onClick={() => handleNavClick('about')}
+                className={`block w-full text-left px-4 py-2 rounded-lg transition-colors ${
+                  currentPage === 'about' ? 'bg-blue-50 text-blue-600 font-semibold' : 'text-gray-700 hover:bg-gray-50'
+                }`}
+              >
+                O nas
+              </button>
+              <button
+                onClick={() => handleNavClick('numbers')}
+                className={`block w-full text-left px-4 py-2 rounded-lg transition-colors ${
+                  currentPage === 'numbers' ? 'bg-blue-50 text-blue-600 font-semibold' : 'text-gray-700 hover:bg-gray-50'
+                }`}
+              >
+                Liczby
+              </button>
+              <button
+                onClick={() => handleNavClick('services')}
+                className={`block w-full text-left px-4 py-2 rounded-lg transition-colors ${
+                  currentPage === 'services' ? 'bg-blue-50 text-blue-600 font-semibold' : 'text-gray-700 hover:bg-gray-50'
+                }`}
+              >
+                Zakres usług
+              </button>
+              <button
+                onClick={() => handleNavClick('contact')}
+                className={`block w-full text-left px-4 py-2 rounded-lg transition-colors ${
+                  currentPage === 'contact' ? 'bg-blue-50 text-blue-600 font-semibold' : 'text-gray-700 hover:bg-gray-50'
+                }`}
+              >
+                Kontakt
+              </button>
+              <a
+                href="https://www.linkedin.com/in/wioletta-k%C3%B3ska-b69515390/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block px-4 py-2 text-blue-600 hover:bg-gray-50 rounded-lg transition-colors"
+              >
+                LinkedIn
+              </a>
+            </nav>
+          )}
         </div>
       </header>
 
       <main>{renderPage()}</main>
 
       <footer className="bg-gray-900 text-white py-12">
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+        <div className="mx-auto px-4 md:px-6 max-w-7xl">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-8">
             <div>
-              <h3 className="text-xl font-bold text-blue-400 mb-4">Adres</h3>
+              <h3 className="text-lg md:text-xl font-bold text-blue-400 mb-4">Adres</h3>
               <address className="not-italic">
-                <p className="text-gray-300 font-semibold">VD Wioletta Kóska</p>
-                <p className="text-gray-300 text-sm mt-2">ul. Krakowska 1, 43-332 Pisarzowice</p>
+                <p className="text-gray-300 font-semibold text-sm md:text-base">VD Wioletta Kóska</p>
+                <p className="text-gray-300 text-sm mt-2">ul. Krakowska 1</p>
+                <p className="text-gray-300 text-sm">43-332 Pisarzowice</p>
                 <p className="text-gray-300 text-sm">NIP: 5471028673</p>
               </address>
             </div>
             <div>
-              <h4 className="text-lg font-semibold text-blue-400 mb-4">Kontakt</h4>
-              <p className="text-gray-300 text-sm">E-mail: <a href="mailto:vd.wioletta.koska@gmail.com" className="hover:underline">vd.wioletta.koska@gmail.com</a></p>
-              <p className="text-gray-300 text-sm mt-2">Tel.: <a href="tel:+48662068515" className="hover:underline">+48 662 068 515</a></p>
+              <h4 className="text-lg md:text-lg font-semibold text-blue-400 mb-4">Kontakt</h4>
+              <div className="space-y-2">
+                <p className="text-gray-300 text-sm">E-mail: <a href="mailto:vd.wioletta.koska@gmail.com" className="hover:underline text-blue-300">vd.wioletta.koska@gmail.com</a></p>
+                <p className="text-gray-300 text-sm">Tel.: <a href="tel:+48662068515" className="hover:underline text-blue-300">+48 662 068 515</a></p>
+              </div>
             </div>
             <div>
-              <h4 className="text-lg font-semibold text-blue-400 mb-4">Linki</h4>
+              <h4 className="text-lg md:text-lg font-semibold text-blue-400 mb-4">Linki</h4>
               <div className="flex flex-col gap-2">
                 <button
-                  onClick={() => setCurrentPage('privacy-policy')}
-                  className="text-gray-300 text-sm hover:underline text-left"
+                  onClick={() => handleNavClick('privacy-policy')}
+                  className="text-gray-300 text-sm hover:text-blue-300 hover:underline text-left transition-colors"
                 >
                   Polityka prywatności
                 </button>
                 <button
-                  onClick={() => setCurrentPage('contact')}
-                  className="text-gray-300 text-sm hover:underline text-left"
+                  onClick={() => handleNavClick('contact')}
+                  className="text-gray-300 text-sm hover:text-blue-300 hover:underline text-left transition-colors"
                 >
                   Kontakt
                 </button>
@@ -122,7 +192,7 @@ function App() {
                   href="https://www.linkedin.com/in/wioletta-k%C3%B3ska-b69515390/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-300 text-sm hover:underline"
+                  className="text-gray-300 text-sm hover:text-blue-300 hover:underline transition-colors"
                 >
                   LinkedIn
                 </a>
@@ -130,7 +200,7 @@ function App() {
             </div>
           </div>
           <div className="border-t border-gray-800 pt-8 text-center text-gray-400">
-            <p className="text-sm">&copy; {new Date().getFullYear()} VD Biuro Rachunkowe. Wszelkie prawa zastrzeżone.</p>
+            <p className="text-xs md:text-sm">&copy; {new Date().getFullYear()} VD Biuro Rachunkowe. Wszelkie prawa zastrzeżone.</p>
           </div>
         </div>
       </footer>
