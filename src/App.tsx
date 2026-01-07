@@ -42,7 +42,7 @@ function App() {
         <div className="mx-auto px-4 md:px-6">
           <div className="flex items-center justify-between py-3 md:py-4">
             <div className="flex items-center flex-shrink-0">
-              <img src={`${import.meta.env.BASE_URL}vd-logo.png`} alt="VD Biuro Rachunkowe" className="h-12 md:h-16 w-auto" />
+              
             </div>
 
             <nav className="hidden md:flex items-center gap-6 lg:gap-8">
