@@ -1,4 +1,4 @@
-import { MapPin, Phone, Mail, Clock, Linkedin } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock } from 'lucide-react';
 
 interface ContactProps {
   onNavigate: (page: 'home' | 'about' | 'numbers' | 'services' | 'contact' | 'privacy-policy') => void;
@@ -21,19 +21,7 @@ export default function Contact({ onNavigate }: ContactProps) {
             <div>
               <h2 className="text-3xl font-bold text-gray-900 mb-8">Dane kontaktowe</h2>
 
-              <div className="space-y-6">
-                <div className="contact-info-card">
-                  <div className="flex items-start gap-4">
-                    <div className="mt-1">
-                      <MapPin size={28} className="text-blue-600" />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-2">Adres</h3>
-                      <p className="text-gray-700">ul. Krakowska 1</p>
-                      <p className="text-gray-700">43-332, Pisarzowice</p>
-                    </div>
-                  </div>
-                </div>
+               
 
                 <div className="contact-info-card">
                   <div className="flex items-start gap-4">
