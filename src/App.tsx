@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { Linkedin, Menu, X } from 'lucide-react';
 import Home from './pages/Home';
 import About from './pages/About';
 import Numbers from './pages/Numbers';
