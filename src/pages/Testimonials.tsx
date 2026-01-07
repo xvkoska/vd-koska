@@ -13,7 +13,7 @@ const DATA: Testimonial[] = [
     text: "Jestem bardzo zadowolona ze współpracy z Panią Wiolettą Kóską. Przemiły kontakt, bardzo szybki. Zawsze dostępna w razie potrzeby. Sprawy rozwiązywane bezproblemowo. Serdecznie polecam i będę polecać innym." },
   { id: 2, name: "Oliwia L.", when: "2 marca 2025", rating: 5,
     text: "Profesjonalizm, rzetelność, dyspozycyjność i ogromna wiedza. Zawsze mogę liczyć na fachowe doradztwo, terminowe rozliczenia oraz pomoc w kwestiach podatkowych i finansowych. Dba o szczegóły, a jej zaangażowanie ułatwia prowadzenie firmy." },
-  { id: 3, name: "Klient inFakt.pl", when: "11 lutego 2025", rating: 5,
+  { id: 3, name: "Klient", when: "11 lutego 2025", rating: 5,
     text: "Wiedza, kompetencje, dyspozycyjność. Zawsze szybka reakcja i odpowiedź na pytania oraz problemy." },
   { id: 4, name: "Piotr S.", when: "18 sierpnia 2025", rating: 5,
     text: "Profesjonalna osoba, zawsze odbierająca telefon. Polecam." },
