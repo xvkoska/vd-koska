@@ -100,8 +100,15 @@ export default function Contact({ onNavigate }: ContactProps) {
 
             <div>
               <div className="bg-white rounded-2xl shadow-lg p-8">
-                <h2 className="text-3xl font-bold text-gray-900 mb-6">Wyślij wiadomość</h2>
-            
+                <h2 className="text-3xl font-bold text-gray-900 mb-6">
+      Wyślij wiadomość
+    </h2>
+
+    <form
+      action="https://formspree.io/f/mbdlnybw"
+      method="POST"
+      className="space-y-6"
+    >
                 
                   <input type="hidden" name="_replyto" value="email" />
                   <div>
