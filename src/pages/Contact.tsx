@@ -21,7 +21,7 @@ export default function Contact({ onNavigate }: ContactProps) {
             <div>
               <h2 className="text-3xl font-bold text-gray-900 mb-8">Dane kontaktowe</h2>
 
-               
+               <div className="space-y-6">
 
           
 
@@ -53,24 +53,7 @@ export default function Contact({ onNavigate }: ContactProps) {
                   </div>
                 </div>
 
-                <div className="contact-info-card">
-                  <div className="flex items-start gap-4">
-                    <div className="mt-1">
-                      <Linkedin size={28} className="text-blue-600" />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-2">Śledź nas</h3>
-                      <a
-                        href="https://www.linkedin.com/company/vd-biuro-rachunkowe"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-blue-600 hover:text-blue-700 text-lg"
-                      >
-                        LinkedIn
-                      </a>
-                    </div>
-                  </div>
-                </div>
+              
               </div>
             </div>
 
